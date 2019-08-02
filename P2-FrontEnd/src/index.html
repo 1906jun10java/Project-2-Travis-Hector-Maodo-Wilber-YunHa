@@ -2,13 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>P2FrontEnd</title>
+  <title>Project 2</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel = "stylesheet" href = "styles.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+  $(document).ready(function(){
+  $('.carousel').carousel({});
+  window.setInterval(function(){$('.carousel').carousel('next')},3000)
+  });
+  </script>
 </head>
 <body>
   <app-root></app-root>
+  <div class="carousel">
+    <a class="carousel-item" href="#one!"><img src="https://memestatic.fjcdn.com/pictures/Mudkips+stolen+memes+250_af9e36_6482116.jpg" style = "width:250px; height:250px"></a>
+    <a class="carousel-item" href="#two!"><img src="https://pics.me.me/when-someone-tries-to-bring-back-a-dead-meme-stop-16372972.png" style = "width:250px; height:250px"></a>
+    <a class="carousel-item" href="#three!"><img src="https://i.ytimg.com/vi/ZXA4UN-oQnY/maxresdefault.jpg" style = "width:250px; height:250px"></a>
+    <a class="carousel-item" href="#four!"><img src="https://imgflip.com/s/meme/Mocking-Spongebob.jpg" style = "width:250px; height:250px"></a>
+    <a class="carousel-item" href="#five!"><img src="https://www.alistdaily.com/wp-content/uploads/2018/12/AList_15_Kiss_meme-640x640.jpg" style = "width:250px; height:250px"></a>
+  </div>
 </body>
 </html>
