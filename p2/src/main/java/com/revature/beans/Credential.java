@@ -2,29 +2,30 @@ package com.revature.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="CREDENTIAL")
-public class Credentials {
+public class Credential {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO, generator="credentialSequence")
-	@SequenceGenerator(allocationSize=1, name="credentialSequence", sequenceName="SQ_CREDENTIAL_PK")
-	@Column(name="CREDENTIAL_USERNAME")
+	@Column(name="CREDENTIAL_ID")
 	private String username;
 	@Column(name="CREDENTIAL_PASSWORD")
 	private String password;
+	@OneToOne
+	@JoinColumn(name="USER_NAME")
+	private User user;
 	
-	public Credentials() {
+	public Credential() {
 		super();
 	}
 	
-	public Credentials(String username, String password) {
+	public Credential(String username, String password) {
 		super();
 		this.username = username;
 		this.password = password;
