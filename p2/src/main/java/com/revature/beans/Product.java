@@ -1,21 +1,43 @@
 package com.revature.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="PRODUCT")
 public class Product {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO, generator="productSequence")
+	@SequenceGenerator(allocationSize=1, name="productSequence", sequenceName="SQ_PRODUCT_PK")
+	@Column(name="PRODUCT_ID")
 	private int productId;
+	@Column(name="MEME_ID")
 	private int memeId;
+	@Column(name="PRODUCT_NAME")
 	private String productName;
+	@Column(name="PRODUCT_DESCRIPTION")
 	private String productDescription;
+	@Column(name="PRODUCT_TYPE")
 	private String productType;
+	@Column(name="PRODUCT_COLOR")
 	private String color;
+	@Column(name="PRODUCT_GENDER")
 	private String gender;
+	@Column(name="PRODUCT_SIZE")
 	private String size;
+	@Column(name="PRODUCT_PRICE")
 	private double price;
+	@Column(name="PRODUCT_QUANTITY")
 	private int quantity;
 	
 	public Product() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Product(int productId, int memeId, String productName, String productDescription, String productType,

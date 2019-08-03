@@ -2,14 +2,34 @@ package com.revature.beans;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="PAYMENT")
 public class Payment {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO, generator="paymentSequence")
+	@SequenceGenerator(allocationSize=1, name="paymentSequence", sequenceName="SQ_PAYMENT_PK")
+	@Column(name="PAYMENT_ID")
 	private int paymentId;
+	@Column(name="USER_ID")
 	private int userId;
+	@Column(name="CARD_NUMBER")
 	private int cardNumber;
+	@Column(name="NAME_ON_CARD")
 	private String nameOnCard;
+	@Column(name="EXPIRATION_DATE")
 	private Date expirationDate;
+	@Column(name="SECURITY_CODE")
 	private int securityCode;
+	@Column(name="CARD_TYPE")
 	private String cardType;
 	
 	public Payment() {

@@ -2,15 +2,36 @@ package com.revature.beans;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="PURCHASE")
 public class Purchase {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO, generator="purchaseSequence")
+	@SequenceGenerator(allocationSize=1, name="purchaseSequence", sequenceName="SQ_PURCHASE_PK")
+	@Column(name="PURCHASE_ID")
 	private int purchaseId;
+	@Column(name="USER_ID")
 	private int userId;
+	@Column(name="TOTAL")
 	private double total;
+	@Column(name="NAME_OF_RECIPIENT")
 	private String nameOfRecipient;
+	@Column(name="BILLING_ADDRESS")
 	private String billingAddress;
+	@Column(name="SHIPPING_ADDRESS")
 	private String shippingAddress;
+	@Column(name="PURCHASE_DATE")
 	private Date purchaseDate;
+	@Column(name="ORDER_STATUS")
 	private String orderStatus;
 	
 	public Purchase() {
