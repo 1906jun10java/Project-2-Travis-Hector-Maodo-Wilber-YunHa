@@ -19,12 +19,12 @@
 		<!-- defaults to update -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<!-- where are our mapped beans? -->
-		<mapping class="com.revature.beans.Credentials"></mapping>
-		<mapping class="com.revature.beans.Meme"></mapping>
-		<mapping class="com.revature.beans.Payment"></mapping>
-		<mapping class="com.revature.beans.Product"></mapping>
-		<mapping class="com.revature.beans.Purchase"></mapping>
-		<mapping class="com.revature.beans.PurchaseItem"></mapping>
-		<mapping class="com.revature.beans.User"></mapping>
+		<mapping class="com.revature.beans.Credential"></mapping>
+		<mapping class="com.revature.beans.WebUser"></mapping>
+		<!--<mapping class="com.revature.beans.Meme"></mapping>-->
+		<!--<mapping class="com.revature.beans.Payment"></mapping>-->
+		<!--<mapping class="com.revature.beans.Product"></mapping>-->
+		<!--<mapping class="com.revature.beans.Purchase"></mapping>-->
+		<!-- <mapping class="com.revature.beans.PurchaseItem"></mapping> -->	
 	</session-factory>
 </hibernate-configuration>

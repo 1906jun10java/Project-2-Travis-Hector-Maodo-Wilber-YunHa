@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.beans.User;
 
-@Repository(value="UserDAO")
+@Repository(value="CustomerDAO")
 @Transactional
 public class UserDAOImpl implements UserDAO{
 	
@@ -25,12 +25,12 @@ public class UserDAOImpl implements UserDAO{
 	@Override
 	public List<User> allUsers() {
 		Session s = sessionFactory.getCurrentSession();
-		return s.createQuery("FROM USER").getResultList();
+		return s.createQuery("FROM WEB_USER").getResultList();
 	}
 
 	@Override
-	public User getUserdById(int userId) {
-		return sessionFactory.getCurrentSession().get(User.class, userId);
+	public User getUserdById(int userserId) {
+		return sessionFactory.getCurrentSession().get(User.class, userserId);
 	}
 
 	@Override
@@ -39,8 +39,13 @@ public class UserDAOImpl implements UserDAO{
 	}
 	
 	@Override
+	public User getUserByUserType(String userType) {
+		return sessionFactory.getCurrentSession().get(User.class, userType);
+	}
+	
+	@Override
 	public void createUser(User user) {
-		sessionFactory.getCurrentSession().persist(user);	
+		sessionFactory.getCurrentSession().persist(user);
 	}
 
 }

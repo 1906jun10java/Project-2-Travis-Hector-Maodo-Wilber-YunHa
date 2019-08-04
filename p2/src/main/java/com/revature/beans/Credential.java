@@ -1,5 +1,7 @@
 package com.revature.beans;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
@@ -9,46 +11,63 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CREDENTIAL")
-public class Credential {
-	
+@Table(name = "CREDENTIAL")
+public class Credential implements Serializable{
+
+	private static final long serialVersionUID = -4902867333534632163L;
+
+
 	@Id
-	@Column(name="CREDENTIAL_ID")
-	private String username;
-	@Column(name="CREDENTIAL_PASSWORD")
-	private String password;
 	@OneToOne
-	@JoinColumn(name="USER_NAME")
-	private User user;
+	@JoinColumn(name = "USER_NAME")
+	private User userName;
+
 	
+	@Column(name = "CREDENTIAL_PASSWORD")
+	private String password;
+	
+
 	public Credential() {
 		super();
 	}
-	
-	public Credential(String username, String password) {
+
+
+	public Credential(User userName, String password) {
 		super();
-		this.username = username;
+		this.userName = userName;
 		this.password = password;
 	}
 
-	public String getUsername() {
-		return username;
+
+	public Credential(String password) {
+		super();
+		this.password = password;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+
+	public User getUserName() {
+		return userName;
 	}
+
+
+	public void setUserName(User userName) {
+		this.userName = userName;
+	}
+
 
 	public String getPassword() {
 		return password;
 	}
 
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Credentials [username=" + username + ", password=" + password + "]";
+		return "Credential [userName=" + userName + ", password=" + password + "]";
 	}
+	
 }
