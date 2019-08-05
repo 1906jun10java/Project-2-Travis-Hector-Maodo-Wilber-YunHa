@@ -13,6 +13,10 @@ import { SignupComponent } from './Component/signup/signup.component';
 import { CartComponent } from './Component/cart/cart.component';
 import { ArtComponent } from './Component/art/art.component';
 import { CollectibleComponent } from './Component/collectible/collectible.component';
+import { UserPageComponent } from './Component/user-page/user-page.component';
+import { ItemPageComponent } from './Component/item-page/item-page.component';
+import { BankFormComponent } from './Component/bank-form/bank-form.component';
+import { AddressFormComponent } from './Component/address-form/address-form.component';
 
 
 @NgModule({
@@ -27,6 +31,10 @@ import { CollectibleComponent } from './Component/collectible/collectible.compon
     CartComponent,
     ArtComponent,
     CollectibleComponent,
+    UserPageComponent,
+    ItemPageComponent,
+    BankFormComponent,
+    AddressFormComponent,
    
   ],
   imports: [
