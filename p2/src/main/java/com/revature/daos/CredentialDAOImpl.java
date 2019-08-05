@@ -20,10 +20,10 @@ public class CredentialDAOImpl implements CredentialDAO{
 
 	private SessionFactory sessionFactory;
 
-	/*@Autowired //constructor injection
+	@Autowired //constructor injection
 	public CredentialDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
-	}*/
+	}
 	
 	@Override
 	public void createCustomer(Credential credential) {

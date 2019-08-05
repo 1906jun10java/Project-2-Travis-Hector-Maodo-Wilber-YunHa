@@ -11,17 +11,17 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.beans.User;
 
-@Repository(value="CustomerDAO")
+@Repository(value = "UserDAO")
 @Transactional
-public class UserDAOImpl implements UserDAO{
-	
+public class UserDAOImpl implements UserDAO {
+
 	private SessionFactory sessionFactory;
 
-	/*
-	 * @Autowired //constructor injection public UserDAOImpl(SessionFactory
-	 * sessionFactory) { this.sessionFactory = sessionFactory; }
-	 */
-	
+	@Autowired // constructor injection
+	public UserDAOImpl(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
 	@Override
 	public List<User> allUsers() {
 		Session s = sessionFactory.getCurrentSession();
@@ -37,12 +37,12 @@ public class UserDAOImpl implements UserDAO{
 	public User getUserByUserName(String userName) {
 		return sessionFactory.getCurrentSession().get(User.class, userName);
 	}
-	
+
 	@Override
 	public User getUserByUserType(String userType) {
 		return sessionFactory.getCurrentSession().get(User.class, userType);
 	}
-	
+
 	@Override
 	public void createUser(User user) {
 		sessionFactory.getCurrentSession().persist(user);
