@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { GeneralNavBarComponent } from './Component/general-nav-bar/general-nav-bar.component';
 import { GeneralFooterComponent } from './Component/general-footer/general-footer.component';
@@ -43,6 +43,7 @@ import { ShippingInfoComponent } from './Component/shipping-info/shipping-info.c
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule
   ],

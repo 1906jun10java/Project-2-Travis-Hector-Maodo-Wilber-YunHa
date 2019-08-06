@@ -12,7 +12,6 @@ export class UserService {
   private userUrl='localhost:8080/User';
 
   constructor( private http: HttpClient) { }
-
  
 
   private handleError<T> (operation = 'operation', result?: T) {
