@@ -7,7 +7,7 @@ import { GeneralFooterComponent } from './Component/general-footer/general-foote
 import { HomePageComponent } from './Component/home-page/home-page.component';
 import { AppRoutingModule } from './Servises/app-routing/app-routing.module';
 import { ApparelComponent } from './Component/apparel/apparel.component';
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
 import { LoginComponent } from './Component/login/login.component';
 import { SignupComponent } from './Component/signup/signup.component';
 import { CartComponent } from './Component/cart/cart.component';
@@ -21,6 +21,7 @@ import { BillingInfoComponent } from './Component/billing-info/billing-info.comp
 import { ShippingInfoComponent } from './Component/shipping-info/shipping-info.component';
 import { AlertComponent } from './Component/alert/alert.component';
 import { fakeBackendProvider } from './helper/fakebackend';
+import { ErrorInterceptor } from './Servises/authenticationService/error.interceptor';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { fakeBackendProvider } from './helper/fakebackend';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [
+  providers: [{ provide: HTTP_INTERCEPTORS, 
+    useClass: ErrorInterceptor, multi: true },
     fakeBackendProvider
   ],
   bootstrap: [AppComponent]

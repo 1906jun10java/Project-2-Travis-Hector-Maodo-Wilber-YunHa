@@ -4,9 +4,6 @@ import { Observable , Subject }  from 'rxjs';
 
 @Injectable({ providedIn: 'root'})
 export class AlertService{
-  getMessage() {
-    throw new Error("Method not implemented.");
-  }
     private subject = new Subject<any>();
     private keepAfterRouteChange = false;
     constructor(private router: Router) {
