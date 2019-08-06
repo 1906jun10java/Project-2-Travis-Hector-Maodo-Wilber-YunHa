@@ -10,7 +10,7 @@ import {Employee} from "src/app/Beans/EmployeeTest";
   providedIn: 'root'
 })
 export class ItemService {
-
+/*
   private itemUrl='localhost:8080/item/topitems';
   private employeeUrl='http://localhost:8082/Project1/allEmployees';
 
@@ -40,5 +40,5 @@ export class ItemService {
       return of(result as T);
     };
   }
-
+*/
 }

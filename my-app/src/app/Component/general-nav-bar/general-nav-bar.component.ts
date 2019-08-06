@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from 'src/app/Servises/authenticationService/authentication.service';
-import { asLiteral } from '@angular/compiler/src/render3/view/util';
 import { User } from 'src/app/Beans';
+import { Subscription } from 'rxjs';
+import { AuthenticationService, UserService } from 'src/app/Servises/authenticationService';
 
 @Component({
   selector: 'app-general-nav-bar',
@@ -9,13 +9,18 @@ import { User } from 'src/app/Beans';
   styleUrls: ['./general-nav-bar.component.css']
 })
 export class GeneralNavBarComponent implements OnInit {
-
-  currentUser:User;
-  
-  constructor(private x:AuthenticationService) { }
-    
+  currentUser: User;
+  currentUserSubscription: Subscription;
+  users: User[] = [];
+  constructor(
+    private authenticationService: AuthenticationService,
+    private userService: UserService
+) {
+    this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
+        this.currentUser = user;
+    });
+}
   ngOnInit() {
-  
   }
 
 }

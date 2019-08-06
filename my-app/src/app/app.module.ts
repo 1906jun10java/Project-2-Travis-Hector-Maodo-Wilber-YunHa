@@ -19,6 +19,8 @@ import { BankFormComponent } from './Component/bank-form/bank-form.component';
 import { AddressFormComponent } from './Component/address-form/address-form.component';
 import { BillingInfoComponent } from './Component/billing-info/billing-info.component';
 import { ShippingInfoComponent } from './Component/shipping-info/shipping-info.component';
+import { AlertComponent } from './Component/alert/alert.component';
+import { fakeBackendProvider } from './helper/fakebackend';
 
 
 @NgModule({
@@ -39,6 +41,7 @@ import { ShippingInfoComponent } from './Component/shipping-info/shipping-info.c
     AddressFormComponent,
     BillingInfoComponent,
     ShippingInfoComponent,
+    AlertComponent,
    
   ],
   imports: [
@@ -47,7 +50,9 @@ import { ShippingInfoComponent } from './Component/shipping-info/shipping-info.c
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
