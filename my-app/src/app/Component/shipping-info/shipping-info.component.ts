@@ -1,5 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { User } from 'src/app/Beans/User';
+import { Subscription } from 'rxjs';
+import { AuthenticationService } from 'src/app/Servises/authenticationService/authentication.service';
 
 
 @Component({
@@ -9,15 +11,25 @@ import { User } from 'src/app/Beans/User';
   
 })
 export class ShippingInfoComponent implements OnInit {
-
- @Input('currentUser') currentUser:User;
-  userEmail:string;
-  userShippingAddress:string;
-  userZippCode:number;
-
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit(): void {
+   
   }
 
+  currentUser: User;
+  currentUserSubscription: Subscription;
+
+  constructor(  private authenticationService: AuthenticationService) { 
+    this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
+      this.currentUser = user;
+  });
 }
+
+ngOnDestroy() {
+  // unsubscribe to ensure no memory leaks
+  this.currentUserSubscription.unsubscribe();
+}
+
+
+
+}
+

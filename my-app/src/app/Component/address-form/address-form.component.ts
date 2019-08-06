@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { User } from 'src/app/Beans';
 
 @Component({
   selector: 'app-address-form',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AddressFormComponent implements OnInit {
 
-  @Input('userEmail') userEmail:string;
+  @Input() currentUser:User;
   @Input('userShippingAddress') userShippingAddress:string;
   @Input('userZippCode') userZippCode:string;
 
