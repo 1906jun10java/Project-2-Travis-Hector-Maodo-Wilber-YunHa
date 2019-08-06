@@ -2,11 +2,12 @@
     Page will Start with a Home nav bar that will redirect users to General pages for given prosuct categories
     Something like apparel,art,collectibles, etc
 -->
-
-<nav>
-  <a routerLink="/Apparel">Apparel </a>
-  <a routerLink="/Art">Art </a>
-  <a routerLink="/Collectibles">Collectibles</a>
+<br>
+<nav class = "z-depth-5">
+<span class="navbar-text">SPECIAL PART OF OUT STORE. CHECK THEM OUT! </span>   
+  <a routerLink="/Apparel"> Apparel </a>
+  | <a routerLink="/Art">Art </a>
+  | <a routerLink="/Collectibles">Collectibles</a>
 </nav>
 
 <!--
@@ -15,16 +16,19 @@
     This will be the general layout for the home page and the other item category pages
 -->
 
-
+<br>
 <div>
-    <img src="http://is2.4chan.org/wg/1564381362826.png" alt="Cool img" width="50%" height="100%">
+    <img src="http://is2.4chan.org/wg/1564381362826.png" class = "z-depth-5" alt="Cool img" width="50%" height="100%">
 </div>
+<br>
     <p>"Top" Item List</p>
     <ul><!--Will need to change this back to items when im done testing the thing-->
         <li *ngFor="let employee of employees" >
             <p>{{employee.name}}</p>
         </li>
     </ul>
+    <br>
 <div>
-    <img src="http://is2.4chan.org/wg/1564381362826.png" alt="Meme img" width="50%" height="100%">
+    <img src="http://is2.4chan.org/wg/1564381362826.png" class = "z-depth-5" alt="Meme img" width="50%" height="100%">
 </div>
+<br>

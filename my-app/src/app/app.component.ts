@@ -10,7 +10,7 @@ import { User } from 'src/app/Beans/User';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Name of Company';
+  title = 'Mememe Store';
   currentUser: User;
  
  /*
