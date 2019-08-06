@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-bank-form',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BankFormComponent implements OnInit {
 
+  @Input("nameOnCard") nameOnCard:string;
+  @Input("cardExporation") cardExporation:Date;
+
   constructor() { }
 
   ngOnInit() {
+    console.log(this.nameOnCard);
   }
 
 }

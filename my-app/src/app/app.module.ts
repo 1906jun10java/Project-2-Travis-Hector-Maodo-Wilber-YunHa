@@ -17,6 +17,8 @@ import { UserPageComponent } from './Component/user-page/user-page.component';
 import { ItemPageComponent } from './Component/item-page/item-page.component';
 import { BankFormComponent } from './Component/bank-form/bank-form.component';
 import { AddressFormComponent } from './Component/address-form/address-form.component';
+import { BillingInfoComponent } from './Component/billing-info/billing-info.component';
+import { ShippingInfoComponent } from './Component/shipping-info/shipping-info.component';
 
 
 @NgModule({
@@ -35,6 +37,8 @@ import { AddressFormComponent } from './Component/address-form/address-form.comp
     ItemPageComponent,
     BankFormComponent,
     AddressFormComponent,
+    BillingInfoComponent,
+    ShippingInfoComponent,
    
   ],
   imports: [

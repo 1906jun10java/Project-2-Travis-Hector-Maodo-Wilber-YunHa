@@ -4,7 +4,13 @@
              <a routerLink="/home">Home </a>
         </li>
         <li>
-            <a routerLink="/LogIn">LogIn </a>
+                <div *ngIf="currentUser; else notShow">
+                     <a routerLink="/UserPage">Profile </a>
+                </div>
+                      
+                 <ng-template #notShow>
+                     <a routerLink="/LogIn">LogIn </a>
+                 </ng-template>
         </li>
         <li>
             <a routerLink="/Cart">Cart </a>
@@ -13,4 +19,6 @@
             Search
         </li>
     </ul>
+
+   
 </nav>
