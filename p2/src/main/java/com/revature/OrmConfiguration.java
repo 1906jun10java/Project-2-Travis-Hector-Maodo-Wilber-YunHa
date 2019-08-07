@@ -6,6 +6,7 @@ import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -13,6 +14,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
+@ComponentScan("com.revature")
 @EnableTransactionManagement
 public class OrmConfiguration {
 	
@@ -23,6 +25,8 @@ public class OrmConfiguration {
 		dataSource.setUrl(System.getenv("P2_DB_URL"));
 		dataSource.setUsername(System.getenv("P2_DB_USERNAME"));
 		dataSource.setPassword(System.getenv("P2_DB_PASSWORD"));
+		
+		
 		return dataSource;
 	}
 	
@@ -40,6 +44,7 @@ public class OrmConfiguration {
 		Properties hibernateProperties = new Properties();
 		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
 		hibernateProperties.setProperty("hibernate.show_sql", "true");
+		hibernateProperties.setProperty("hibernate.hbm2ddl.import_files", "schema.sql");
 		return hibernateProperties;
 	}
 	
