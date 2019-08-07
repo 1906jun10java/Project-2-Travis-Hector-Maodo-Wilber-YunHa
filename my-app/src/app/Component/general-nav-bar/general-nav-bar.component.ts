@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/Beans';
 import { Subscription } from 'rxjs';
 import { AuthenticationService, UserService } from 'src/app/Servises/authenticationService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-general-nav-bar',
@@ -13,6 +14,7 @@ export class GeneralNavBarComponent implements OnInit {
   currentUserSubscription: Subscription;
   users: User[] = [];
   constructor(
+    private router: Router,
     private authenticationService: AuthenticationService,
     private userService: UserService
 ) {
@@ -22,5 +24,9 @@ export class GeneralNavBarComponent implements OnInit {
 }
   ngOnInit() {
   }
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/home']);
+}
 
 }

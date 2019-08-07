@@ -12,7 +12,7 @@ export class UserService {
   private userUrl='localhost:8080/User';
 
   constructor( private http: HttpClient) { }
-  getAll() {
+getAll() {
     return this.http.get<User[]>(`/users`);
 }
 

@@ -14,14 +14,7 @@ import { BillingInfoService } from 'src/app/Servises/billingService/billing-info
 })
 export class BillingInfoComponent implements OnInit {
 
-  billingForm=this.fb.group({
-    cardNumber: ['',Validators.required],
-    securetyNumber:['',Validators.required],
-    nameOnCard:['',Validators.required],
-    cardExpiration:['',Validators.required] 
-  });
-
-
+  billingForm: FormGroup;
   currentUser: User;
   currentUserSubscription: Subscription;
 
@@ -29,6 +22,14 @@ export class BillingInfoComponent implements OnInit {
   newBillingInfo:Billing;
   valid:boolean;
   
+  billingInfo: Billing = {
+    id:22,
+    userID: 55,
+    cardNum: 30403043043,
+    securetyNum: 234,
+    nameOnCard: "Joe",
+    exp: new Date()
+  }
   
   constructor(private authenticationService: AuthenticationService,private router: Router,
     private billingInfoService:BillingInfoService,private fb:FormBuilder) { 
@@ -43,12 +44,21 @@ export class BillingInfoComponent implements OnInit {
   }
 
   ngOnInit() {
+  this.billingForm = this.fb.group({
+    cardNumber: ['',Validators.required],
+    securetyNumber:['',Validators.required],
+    nameOnCard:['',Validators.required],
+    cardExpiration:['',Validators.required] 
+  });
+
     /*
    this.billingInfoService.getCurrentUserBilling(this.currentUser.id)
    .subscribe(billing => this.billinInfo=billing);
    */
   }
 
+  get f() { return this.billingForm.controls;
+  }
   onSubmit(){
     
     if(this.billingForm.status==="INVALID"){
