@@ -1,4 +1,3 @@
-
 package com.revature.beans;
 
 import javax.persistence.Column;
@@ -6,90 +5,120 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-
-@Table(name = "PRODUCT")
+@Table(name="PRODUCT")
 public class Product {
-
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "productSequence")
-	@SequenceGenerator(allocationSize = 1, name = "productSequence", sequenceName = "SQ_PRODUCT_PK")
-	@Column(name = "PRODUCT_ID")
+	@GeneratedValue(strategy=GenerationType.AUTO, generator="productSequence")
+	@SequenceGenerator(allocationSize=1, name="productSequence", sequenceName="SQ_PRODUCT_PK")
+	@Column(name="PRODUCT_ID")
 	private int productId;
-
-	@Column(name = "PRODUCT_NAME")
+	
+	@OneToOne
+	@JoinColumn(name="MEME_ID", referencedColumnName = "MEME_ID")
+	private Meme meme;
+	
+	@Column(name="PRODUCT_NAME")
 	private String productName;
 	
-	@Column(name = "PRODUCT_TYPE")
-	private String productType;
-
-	@Column(name = "PRODUCT_DESCRIPTION")
+	@Column(name="PRODUCT_DESCRIPTION")
 	private String productDescription;
 	
-	@Column(name = "PRODUCT_IMAGE")
-	private String imageURL;
+	@Column(name="PRODUCT_TYPE")
+	private String productType;
 	
-	@Column(name = "PRODUCT_GENDER")
+	@Column(name="PRODUCT_COLOR")
+	private String color;
+	
+	@Column(name="PRODUCT_GENDER")
 	private String gender;
 	
-	@Column(name = "PRODUCT_COLOR")
-	private String color;
-
-	@Column(name = "PRODUCT_SIZE")
+	@Column(name="PRODUCT_SIZE")
 	private String size;
-
-	@Column(name = "PRODUCT_PRICE")
+	
+	@Column(name="PRODUCT_PRICE")
 	private double price;
-
-	@Column(name = "PRODUCT_QUANTITY")
+	
+	@Column(name="PRODUCT_QUANTITY")
 	private int quantity;
 	
-	@Column(name = "PRODUCT_APPERAL")
-	private String apparel;
+	@Column(name="NUMBER_SOLD")
+	private int numberSold;
 	
-	@Column(name = "PRODUCT_COLLECTION")
-	private String collection;
-
 	public Product() {
 		super();
 	}
 
-	public Product(String productName, String productType, String productDescription, String imageURL, String gender,
-			String color, String size, double price, int quantity, String apparel, String collection) {
-		super();
-		this.productName = productName;
-		this.productType = productType;
-		this.productDescription = productDescription;
-		this.imageURL = imageURL;
-		this.gender = gender;
-		this.color = color;
-		this.size = size;
-		this.price = price;
-		this.quantity = quantity;
-		this.apparel = apparel;
-		this.collection = collection;
-	}
-
-
-
-	public Product(int productId, String productName, String productType, String productDescription, String imageURL,
-			String gender, String color, String size, double price, int quantity, String apparel, String collection) {
+	public Product(int productId, Meme meme, String productName, String productDescription, String productType,
+			String color, String gender, String size, double price, int quantity, int numberSold) {
 		super();
 		this.productId = productId;
+		this.meme = meme;
 		this.productName = productName;
-		this.productType = productType;
 		this.productDescription = productDescription;
-		this.imageURL = imageURL;
-		this.gender = gender;
+		this.productType = productType;
 		this.color = color;
+		this.gender = gender;
 		this.size = size;
 		this.price = price;
 		this.quantity = quantity;
-		this.apparel = apparel;
-		this.collection = collection;
+		this.numberSold = numberSold;
+	}
+
+	public Product(Meme meme, String productName, String productDescription, String productType,
+			String color, String gender, String size, double price, int quantity, int numberSold) {
+		super();
+		this.meme = meme;
+		this.productName = productName;
+		this.productDescription = productDescription;
+		this.productType = productType;
+		this.color = color;
+		this.gender = gender;
+		this.size = size;
+		this.price = price;
+		this.quantity = quantity;
+		this.numberSold = numberSold;
+	}
+	
+	public Product(Meme meme, String productName, String productDescription, String productType,
+			String color, String gender, String size, double price, int quantity) {
+		super();
+		this.meme = meme;
+		this.productName = productName;
+		this.productDescription = productDescription;
+		this.productType = productType;
+		this.color = color;
+		this.gender = gender;
+		this.size = size;
+		this.price = price;
+		this.quantity = quantity;
+	}
+	
+	public Product(Meme meme, String productName, String productDescription, String productType,
+			double price, int quantity) {
+		super();
+		this.meme = meme;
+		this.productName = productName;
+		this.productDescription = productDescription;
+		this.productType = productType;
+		this.price = price;
+		this.quantity = quantity;
+	}
+	
+	public Product(Meme meme, String productName, String productDescription, String productType,
+			double price) {
+		super();
+		this.meme = meme;
+		this.productName = productName;
+		this.productDescription = productDescription;
+		this.productType = productType;
+		this.price = price;
 	}
 
 	public int getProductId() {
@@ -100,20 +129,20 @@ public class Product {
 		this.productId = productId;
 	}
 
+	public Meme getMeme() {
+		return meme;
+	}
+
+	public void setMeme(Meme meme) {
+		this.meme = meme;
+	}
+
 	public String getProductName() {
 		return productName;
 	}
 
 	public void setProductName(String productName) {
 		this.productName = productName;
-	}
-
-	public String getProductType() {
-		return productType;
-	}
-
-	public void setProductType(String productType) {
-		this.productType = productType;
 	}
 
 	public String getProductDescription() {
@@ -124,20 +153,12 @@ public class Product {
 		this.productDescription = productDescription;
 	}
 
-	public String getImageURL() {
-		return imageURL;
+	public String getProductType() {
+		return productType;
 	}
 
-	public void setImageURL(String imageURL) {
-		this.imageURL = imageURL;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setProductType(String productType) {
+		this.productType = productType;
 	}
 
 	public String getColor() {
@@ -146,6 +167,14 @@ public class Product {
 
 	public void setColor(String color) {
 		this.color = color;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public String getSize() {
@@ -172,28 +201,20 @@ public class Product {
 		this.quantity = quantity;
 	}
 
-	public String getApparel() {
-		return apparel;
+	public int getNumberSold() {
+		return numberSold;
 	}
 
-	public void setApparel(String apparel) {
-		this.apparel = apparel;
-	}
-
-	public String getCollection() {
-		return collection;
-	}
-
-	public void setCollection(String collection) {
-		this.collection = collection;
+	public void setNumberSold(int numberSold) {
+		this.numberSold = numberSold;
 	}
 
 	@Override
 	public String toString() {
-		return "Product [productId=" + productId + ", productName=" + productName + ", productType=" + productType
-				+ ", productDescription=" + productDescription + ", imageURL=" + imageURL + ", gender=" + gender
-				+ ", color=" + color + ", size=" + size + ", price=" + price + ", quantity=" + quantity + ", apparel="
-				+ apparel + ", collection=" + collection + "]";
+		return "Product [productId=" + productId + ", meme=" + meme + ", productName=" + productName
+				+ ", productDescription=" + productDescription + ", productType=" + productType + ", color=" + color
+				+ ", gender=" + gender + ", size=" + size + ", price=" + price + ", quantity=" + quantity
+				+ ", numberSold=" + numberSold + "]";
 	}
-
+	
 }

@@ -11,14 +11,14 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.beans.*;
 
-@Repository(value="productDAO")
+@Repository(value="purchaseItemDAO")
 @Transactional
-public class ProductDAOImpl implements ProductDAO {
+public class PurchaseItemDAOImpl implements PurchaseItemDAO {
 
 	private SessionFactory sessionFactory;
 	
 	@Autowired
-	public ProductDAOImpl(SessionFactory sessionFactory) {
+	public PurchaseItemDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 	

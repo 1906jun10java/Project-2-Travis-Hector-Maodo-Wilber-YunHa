@@ -4,6 +4,6 @@ import java.util.List;
 
 import com.revature.beans.*;
 
-public interface ProductDAO {
+public interface AddressDAO {
 
 }

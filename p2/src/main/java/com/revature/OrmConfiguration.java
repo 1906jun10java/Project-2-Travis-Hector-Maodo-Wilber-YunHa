@@ -1,7 +1,9 @@
 package com.revature;
 
 import java.util.Properties;
+
 import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -17,7 +19,7 @@ public class OrmConfiguration {
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setUrl("oracle.jdbc.driver.OracleDriver");
+		dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
 		dataSource.setUrl(System.getenv("P2_DB_URL"));
 		dataSource.setUsername(System.getenv("P2_DB_USERNAME"));
 		dataSource.setPassword(System.getenv("P2_DB_PASSWORD"));
@@ -33,6 +35,7 @@ public class OrmConfiguration {
 		return sessionFactory;
 	}
 	
+	//@Bean
 	private final Properties hibernateProperties() {
 		Properties hibernateProperties = new Properties();
 		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");

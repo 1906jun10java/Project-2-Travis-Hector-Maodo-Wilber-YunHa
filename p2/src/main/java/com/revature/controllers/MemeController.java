@@ -1,6 +1,5 @@
 package com.revature.controllers;
 
-
 import java.io.StringReader;
 import java.util.List;
 
@@ -25,13 +24,31 @@ import com.revature.services.*;
 
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
-@RequestMapping(value="/product")
-public class ProductController {
+@RequestMapping(value="/meme")
+public class MemeController {
 
-	private ProductService productService;
+	private MemeService memeService;
 	
 	@Autowired
-	public void setProductService(ProductService productService) {
-		this.productService = productService;
+	public void setMemeService(MemeService memeService) {
+		this.memeService = memeService;
+	}
+	
+	@RequestMapping(value="/all", method=RequestMethod.GET)
+	public ResponseEntity<List<Meme>> getAllMemes() {
+		return new ResponseEntity<>(memeService.getAllMemes(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/addMeme", method=RequestMethod.POST)
+	public ResponseEntity<String> addMeme(@RequestBody Meme meme) {
+		ResponseEntity<String> resp = null;
+		
+		try {
+			memeService.addMeme(meme);
+			resp = new ResponseEntity<>("MEME CREATED SUCCESSFULLY", HttpStatus.OK);
+		} catch (Exception e) {
+			resp = new ResponseEntity<>("FAILED TO CREATE MEME", HttpStatus.BAD_REQUEST);
+		}
+		return resp;
 	}
 }

@@ -9,13 +9,12 @@ import com.revature.beans.*;
 import com.revature.daos.*;
 
 @Service
-public class ProductService {
+public class PurchaseService {
 
-	private ProductDAO productDAO;
+	private PurchaseDAO purchaseDAO;
 	
 	@Autowired
-	public ProductService(ProductDAO productDAO) {
-		this.productDAO = productDAO;
+	public PurchaseService(PurchaseDAO purchaseDAO) {
+		this.purchaseDAO = purchaseDAO;
 	}
-
 }

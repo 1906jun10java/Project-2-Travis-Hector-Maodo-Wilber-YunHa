@@ -1,6 +1,5 @@
 package com.revature.controllers;
 
-
 import java.io.StringReader;
 import java.util.List;
 
@@ -25,13 +24,13 @@ import com.revature.services.*;
 
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
-@RequestMapping(value="/product")
-public class ProductController {
+@RequestMapping(value="/purchase")
+public class PurchaseController {
 
-	private ProductService productService;
+	private PurchaseService purchaseService;
 	
 	@Autowired
-	public void setProductService(ProductService productService) {
-		this.productService = productService;
+	public void setPurchaseService(PurchaseService purchaseService) {
+		this.purchaseService = purchaseService;
 	}
 }
