@@ -1,1 +1,29 @@
-<p>asdasdasd</p>
+<form [formGroup]="apparelForm">
+        <select class="form-control">
+            <option value="null" disabled>Color</option>
+            <option *ngFor="let color of colors" value="" ></option>
+        </select>
+        
+            <select class="form-control">
+                    <option value="null" disabled>Size</option>
+                    <option *ngFor="let size of sizes" value="" ></option>
+            </select> 
+
+            <select class="form-control">
+                    <option value="null" disabled>Type</option>
+                    <option *ngFor="let type of types" value="" ></option>
+            </select>
+
+             <select class="form-control">
+                    <option value="Men">Men</option>
+                    <option Value="Women">Women</option>
+            </select>
+</form>
+    
+
+    
+
+ 
+  
+
+<app-item-list></app-item-list>

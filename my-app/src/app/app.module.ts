@@ -22,6 +22,8 @@ import { ShippingInfoComponent } from './Component/shipping-info/shipping-info.c
 import { AlertComponent } from './Component/alert/alert.component';
 import { fakeBackendProvider } from './helper/fakebackend';
 import { ErrorInterceptor } from './Servises/authenticationService/error.interceptor';
+import { ItemDetailComponent } from './Component/item-detail/item-detail.component';
+import { ItemListComponent } from './Component/item-list/item-list.component';
 
 
 @NgModule({
@@ -43,6 +45,8 @@ import { ErrorInterceptor } from './Servises/authenticationService/error.interce
     BillingInfoComponent,
     ShippingInfoComponent,
     AlertComponent,
+    ItemDetailComponent,
+    ItemListComponent,
    
   ],
   imports: [
