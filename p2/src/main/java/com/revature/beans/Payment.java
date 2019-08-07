@@ -24,7 +24,7 @@ public class Payment {
 	
 	@OneToOne
 	@JoinColumn(name="USER_ID", referencedColumnName = "USER_ID")
-	private WebUser user;
+	private User user;
 	
 	@Column(name="CARD_NUMBER")
 	private int cardNumber;
@@ -45,7 +45,7 @@ public class Payment {
 		super();
 	}
 
-	public Payment(int paymentId, WebUser user, int cardNumber, String nameOnCard, Date expirationDate, int securityCode,
+	public Payment(int paymentId, User user, int cardNumber, String nameOnCard, Date expirationDate, int securityCode,
 			String cardType) {
 		super();
 		this.paymentId = paymentId;
@@ -57,7 +57,7 @@ public class Payment {
 		this.cardType = cardType;
 	}
 	
-	public Payment(WebUser user, int cardNumber, String nameOnCard, Date expirationDate, int securityCode,
+	public Payment(User user, int cardNumber, String nameOnCard, Date expirationDate, int securityCode,
 			String cardType) {
 		super();
 		this.user = user;
@@ -86,11 +86,11 @@ public class Payment {
 		this.paymentId = paymentId;
 	}
 
-	public WebUser getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(WebUser user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 

@@ -39,14 +39,14 @@ public class Address {
 	
 	@OneToOne
 	@JoinColumn(name="USER_ID", referencedColumnName = "USER_ID")
-	private WebUser user;
+	private User user;
 
 	public Address() {
 		super();
 	}
 
 	public Address(int addressId, String addressLine1, String addressLine2, String city, String state, String zipCode,
-			WebUser user) {
+			User user) {
 		super();
 		this.addressId = addressId;
 		this.addressLine1 = addressLine1;
@@ -58,7 +58,7 @@ public class Address {
 	}
 	
 	public Address(String addressLine1, String addressLine2, String city, String state, String zipCode,
-			WebUser user) {
+			User user) {
 		super();
 		this.addressLine1 = addressLine1;
 		this.addressLine2 = addressLine2;
@@ -125,11 +125,11 @@ public class Address {
 		this.zipCode = zipCode;
 	}
 
-	public WebUser getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(WebUser user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 

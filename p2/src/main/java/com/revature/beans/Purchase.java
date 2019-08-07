@@ -24,7 +24,7 @@ public class Purchase {
 	
 	@OneToOne
 	@JoinColumn(name="USER_ID", referencedColumnName = "USER_ID")
-	private WebUser user;
+	private User user;
 	
 	@Column(name="TAX")
 	private double tax;
@@ -60,7 +60,7 @@ public class Purchase {
 		super();
 	}
 
-	public Purchase(int purchaseId, WebUser user, double total, String nameOfRecipient, Payment payment,
+	public Purchase(int purchaseId, User user, double total, String nameOfRecipient, Payment payment,
 			Address billingAddress, Address shippingAddress, Date purchaseDate, String orderStatus) {
 		super();
 		this.purchaseId = purchaseId;
@@ -74,7 +74,7 @@ public class Purchase {
 		this.orderStatus = orderStatus;
 	}
 
-	public Purchase(int purchaseId, WebUser user, double tax, double shippingAndHandling, double total,
+	public Purchase(int purchaseId, User user, double tax, double shippingAndHandling, double total,
 			String nameOfRecipient, Payment payment, Address billingAddress, Address shippingAddress, Date purchaseDate,
 			String orderStatus) {
 		super();
@@ -91,7 +91,7 @@ public class Purchase {
 		this.orderStatus = orderStatus;
 	}
 	
-	public Purchase(WebUser user, double tax, double shippingAndHandling, double total,
+	public Purchase(User user, double tax, double shippingAndHandling, double total,
 			String nameOfRecipient, Payment payment, Address billingAddress, Address shippingAddress, Date purchaseDate,
 			String orderStatus) {
 		super();
@@ -116,11 +116,11 @@ public class Purchase {
 		this.purchaseId = purchaseId;
 	}
 
-	public WebUser getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(WebUser user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 
