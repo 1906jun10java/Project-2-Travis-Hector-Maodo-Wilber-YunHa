@@ -42,44 +42,13 @@ public class Payment {
 		super();
 	}
 
-<<<<<<< HEAD
-	public Payment(int paymentId, User user, int cardNumber, String nameOnCard, Date expirationDate, int securityCode) {
-=======
-	public Payment(int paymentId, User user, int cardNumber, String nameOnCard, Date expirationDate, int securityCode,
-			String cardType) {
->>>>>>> 90eabb2c542dc07789059e1feabc926804c811a6
-		super();
-		this.paymentId = paymentId;
-		this.user = user;
-		this.cardNumber = cardNumber;
-		this.nameOnCard = nameOnCard;
-		this.expirationDate = expirationDate;
-		this.securityCode = securityCode;
-<<<<<<< HEAD
-=======
-		this.cardType = cardType;
-	}
-	
-	public Payment(User user, int cardNumber, String nameOnCard, Date expirationDate, int securityCode,
-			String cardType) {
+	public Payment(User user, int cardNumber, String nameOnCard, Date expirationDate, int securityCode) {
 		super();
 		this.user = user;
 		this.cardNumber = cardNumber;
 		this.nameOnCard = nameOnCard;
 		this.expirationDate = expirationDate;
 		this.securityCode = securityCode;
-		this.cardType = cardType;
-	}
-	
-	public Payment(int cardNumber, String nameOnCard, Date expirationDate, int securityCode,
-			String cardType) {
-		super();
-		this.cardNumber = cardNumber;
-		this.nameOnCard = nameOnCard;
-		this.expirationDate = expirationDate;
-		this.securityCode = securityCode;
-		this.cardType = cardType;
->>>>>>> 90eabb2c542dc07789059e1feabc926804c811a6
 	}
 
 	public int getPaymentId() {
@@ -135,4 +104,6 @@ public class Payment {
 		return "Payment [paymentId=" + paymentId + ", user=" + user + ", cardNumber=" + cardNumber + ", nameOnCard="
 				+ nameOnCard + ", expirationDate=" + expirationDate + ", securityCode=" + securityCode + "]";
 	}
+
+	
 }

@@ -62,11 +62,9 @@ public class Credentials implements Serializable{
 	}
 
 
-
 	public String getEmail() {
 		return email;
 	}
-
 
 
 	public void setEmail(String email) {
@@ -74,11 +72,9 @@ public class Credentials implements Serializable{
 	}
 
 
-
 	public String getPassword() {
 		return password;
 	}
-
 
 
 	public void setPassword(String password) {
@@ -86,12 +82,9 @@ public class Credentials implements Serializable{
 	}
 
 
-
 	@Override
 	public String toString() {
 		return "Credentials [user=" + user + ", email=" + email + ", password=" + password + "]";
 	}
-
-
 	
 }

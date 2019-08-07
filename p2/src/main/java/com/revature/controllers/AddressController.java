@@ -15,12 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
-
-import com.revature.beans.*;
-import com.revature.services.*;
+import com.revature.beans.Address;
+import com.revature.services.AddressService;
 
 @CrossOrigin(origins="http://localhost:4200")
 @RestController

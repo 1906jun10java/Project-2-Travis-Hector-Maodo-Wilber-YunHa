@@ -33,6 +33,21 @@ public class ProductController {
 		return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
 	}
 	
+	@RequestMapping(value="/colors", method=RequestMethod.GET)
+	public ResponseEntity<List<Product>> getProductColors() {
+		return new ResponseEntity<>(productService.getProductColors(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/sizes", method=RequestMethod.GET)
+	public ResponseEntity<List<Product>> getProductSizes() {
+		return new ResponseEntity<>(productService.getProductSizes(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/Types", method=RequestMethod.GET)
+	public ResponseEntity<List<Product>> getProductTypes() {
+		return new ResponseEntity<>(productService.getProductTypes(), HttpStatus.OK);
+	}
+	
 	@PostMapping // we could also do RequestMapping with RequestMethod.POST
 	public ResponseEntity<String> addProduct(@RequestBody Product product) {
 		ResponseEntity<String> resp = null;
@@ -44,4 +59,6 @@ public class ProductController {
 		}
 		return resp;
 	}
+	
+	
 }

@@ -120,6 +120,7 @@ public class Product {
 		this.productType = productType;
 		this.price = price;
 	}
+	
 
 	public int getProductId() {
 		return productId;

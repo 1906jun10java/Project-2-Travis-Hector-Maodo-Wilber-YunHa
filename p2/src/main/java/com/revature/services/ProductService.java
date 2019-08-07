@@ -25,4 +25,16 @@ public class ProductService {
 	public void createProduct(Product product) {
 		this.productDAO.addProduct(product);
 	}
+	
+	public List<Product> getProductColors() {
+		return this.productDAO.getProductColors();
+	}
+	
+	public List<Product> getProductSizes() {
+		return this.productDAO.getProductSizes();
+	}
+	
+	public List<Product> getProductTypes() {
+		return this.productDAO.getProductTypes();
+	}
 }
