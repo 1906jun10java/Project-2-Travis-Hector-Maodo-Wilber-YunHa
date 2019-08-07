@@ -38,16 +38,15 @@ public class Payment {
 	@Column(name="SECURITY_CODE")
 	private int securityCode;
 	
+	@Column(name="CARD_TYPE")
+	private String cardType;
+	
 	public Payment() {
 		super();
 	}
 
-<<<<<<< HEAD
-	public Payment(int paymentId, User user, int cardNumber, String nameOnCard, Date expirationDate, int securityCode) {
-=======
 	public Payment(int paymentId, User user, int cardNumber, String nameOnCard, Date expirationDate, int securityCode,
 			String cardType) {
->>>>>>> 90eabb2c542dc07789059e1feabc926804c811a6
 		super();
 		this.paymentId = paymentId;
 		this.user = user;
@@ -55,8 +54,6 @@ public class Payment {
 		this.nameOnCard = nameOnCard;
 		this.expirationDate = expirationDate;
 		this.securityCode = securityCode;
-<<<<<<< HEAD
-=======
 		this.cardType = cardType;
 	}
 	
@@ -79,7 +76,6 @@ public class Payment {
 		this.expirationDate = expirationDate;
 		this.securityCode = securityCode;
 		this.cardType = cardType;
->>>>>>> 90eabb2c542dc07789059e1feabc926804c811a6
 	}
 
 	public int getPaymentId() {
@@ -130,9 +126,19 @@ public class Payment {
 		this.securityCode = securityCode;
 	}
 
+	public String getCardType() {
+		return cardType;
+	}
+
+	public void setCardType(String cardType) {
+		this.cardType = cardType;
+	}
+	
 	@Override
 	public String toString() {
-		return "Payment [paymentId=" + paymentId + ", user=" + user + ", cardNumber=" + cardNumber + ", nameOnCard="
-				+ nameOnCard + ", expirationDate=" + expirationDate + ", securityCode=" + securityCode + "]";
+		return "Payment [paymentId=" + paymentId + ", cardNumber=" + cardNumber + ", nameOnCard=" + nameOnCard
+				+ ", expirationDate=" + expirationDate + ", securityCode=" + securityCode + ", cardType=" + cardType
+				+ ", user=" + user + "]";
 	}
+	
 }
