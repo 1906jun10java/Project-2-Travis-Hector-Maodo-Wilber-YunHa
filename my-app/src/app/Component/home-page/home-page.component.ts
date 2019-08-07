@@ -25,7 +25,11 @@ export class HomePageComponent implements OnInit {
         this.currentUser = user;
     });
 }
+
+coolNum:number=Math.floor((Math.random() * 5) + 1);
+memeNum:number=Math.floor((Math.random() * 4) + 1)
 ngOnInit() {
+  
 }
 
 ngOnDestroy() {
