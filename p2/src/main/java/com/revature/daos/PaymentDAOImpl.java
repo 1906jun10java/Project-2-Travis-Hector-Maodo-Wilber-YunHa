@@ -21,5 +21,16 @@ public class PaymentDAOImpl implements PaymentDAO {
 	public PaymentDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
+
+	@Override
+	public List<Payment> getAllPayments() {
+		Session s = sessionFactory.getCurrentSession();
+		return s.createQuery("from Payment").getResultList();
+	}
+
+	@Override
+	public void addPayment(Payment payment) {
+		sessionFactory.getCurrentSession().merge(payment);
+	}
 	
 }

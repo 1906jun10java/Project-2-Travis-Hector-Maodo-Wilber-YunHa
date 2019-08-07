@@ -18,4 +18,11 @@ public class ProductService {
 		this.productDAO = productDAO;
 	}
 
+	public List<Product> getAllProducts() {
+		return this.productDAO.getAllProducts();
+	}
+	
+	public void createProduct(Product product) {
+		this.productDAO.addProduct(product);
+	}
 }

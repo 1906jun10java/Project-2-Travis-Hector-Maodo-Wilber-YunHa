@@ -21,5 +21,16 @@ public class ProductDAOImpl implements ProductDAO {
 	public ProductDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
+
+	@Override
+	public List<Product> getAllProducts() {
+		Session s = sessionFactory.getCurrentSession();
+		return s.createQuery("from Product").getResultList();
+	}
+
+	@Override
+	public void addProduct(Product product) {
+		sessionFactory.getCurrentSession().merge(product);
+	}
 	
 }

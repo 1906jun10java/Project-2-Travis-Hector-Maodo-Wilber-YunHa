@@ -18,4 +18,11 @@ public class PaymentService {
 		this.paymentDAO = paymentDAO;
 	}
 	
+	public List<Payment> getAllPayments() {
+		return this.paymentDAO.getAllPayments();
+	}
+	
+	public void createPayment(Payment payment) {
+		this.paymentDAO.addPayment(payment);
+	}
 }

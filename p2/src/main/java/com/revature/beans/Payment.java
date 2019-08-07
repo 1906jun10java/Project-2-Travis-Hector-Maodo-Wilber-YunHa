@@ -24,7 +24,7 @@ public class Payment {
 	
 	@OneToOne
 	@JoinColumn(name="USER_ID", referencedColumnName = "USER_ID")
-	private WebUser user;
+	private User user;
 	
 	@Column(name="CARD_NUMBER")
 	private int cardNumber;
@@ -38,15 +38,11 @@ public class Payment {
 	@Column(name="SECURITY_CODE")
 	private int securityCode;
 	
-	@Column(name="CARD_TYPE")
-	private String cardType;
-	
 	public Payment() {
 		super();
 	}
 
-	public Payment(int paymentId, WebUser user, int cardNumber, String nameOnCard, Date expirationDate, int securityCode,
-			String cardType) {
+	public Payment(int paymentId, User user, int cardNumber, String nameOnCard, Date expirationDate, int securityCode) {
 		super();
 		this.paymentId = paymentId;
 		this.user = user;
@@ -54,28 +50,6 @@ public class Payment {
 		this.nameOnCard = nameOnCard;
 		this.expirationDate = expirationDate;
 		this.securityCode = securityCode;
-		this.cardType = cardType;
-	}
-	
-	public Payment(WebUser user, int cardNumber, String nameOnCard, Date expirationDate, int securityCode,
-			String cardType) {
-		super();
-		this.user = user;
-		this.cardNumber = cardNumber;
-		this.nameOnCard = nameOnCard;
-		this.expirationDate = expirationDate;
-		this.securityCode = securityCode;
-		this.cardType = cardType;
-	}
-	
-	public Payment(int cardNumber, String nameOnCard, Date expirationDate, int securityCode,
-			String cardType) {
-		super();
-		this.cardNumber = cardNumber;
-		this.nameOnCard = nameOnCard;
-		this.expirationDate = expirationDate;
-		this.securityCode = securityCode;
-		this.cardType = cardType;
 	}
 
 	public int getPaymentId() {
@@ -86,11 +60,11 @@ public class Payment {
 		this.paymentId = paymentId;
 	}
 
-	public WebUser getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(WebUser user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 
@@ -126,19 +100,9 @@ public class Payment {
 		this.securityCode = securityCode;
 	}
 
-	public String getCardType() {
-		return cardType;
-	}
-
-	public void setCardType(String cardType) {
-		this.cardType = cardType;
-	}
-	
 	@Override
 	public String toString() {
-		return "Payment [paymentId=" + paymentId + ", cardNumber=" + cardNumber + ", nameOnCard=" + nameOnCard
-				+ ", expirationDate=" + expirationDate + ", securityCode=" + securityCode + ", cardType=" + cardType
-				+ ", user=" + user + "]";
+		return "Payment [paymentId=" + paymentId + ", user=" + user + ", cardNumber=" + cardNumber + ", nameOnCard="
+				+ nameOnCard + ", expirationDate=" + expirationDate + ", securityCode=" + securityCode + "]";
 	}
-	
 }
