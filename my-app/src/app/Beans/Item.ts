@@ -4,5 +4,6 @@ export class Item{
     name:string;
     type:string;
     description:String;
+    price:number;
 
 }
