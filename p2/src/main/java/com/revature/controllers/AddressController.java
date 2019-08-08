@@ -34,6 +34,7 @@ private AddressService addressService;
 		this.addressService = addressService;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/addAddress", method=RequestMethod.POST)
 	public ResponseEntity<String> addAddress(@RequestBody Address address) {
 		ResponseEntity<String> resp = null;
@@ -47,6 +48,7 @@ private AddressService addressService;
 		return resp;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/updateAddress", method=RequestMethod.POST)
 	public ResponseEntity<String> updateAddress(@RequestBody Address address) {
 		ResponseEntity<String> resp = null;
@@ -60,6 +62,7 @@ private AddressService addressService;
 		return resp;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/getAddressById/{addressId}", method=RequestMethod.GET)
 	public ResponseEntity<Address> getAddressById(@PathVariable int addressId) {
 		Address a = addressService.getAddressById(addressId);
@@ -70,6 +73,7 @@ private AddressService addressService;
 		}
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/getAddressesByUserId/{userId}", method=RequestMethod.GET)
 	public ResponseEntity<List<Address>> getAddressesForUser(@PathVariable int userId) {
 		List<Address> a = addressService.getAddressesForUser(userId);
