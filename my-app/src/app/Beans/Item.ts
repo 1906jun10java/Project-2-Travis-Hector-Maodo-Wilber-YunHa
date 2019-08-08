@@ -1,9 +1,9 @@
 export class Item{
 
-    id:number;
-    name:string;
-    type:string;
-    description:String;
+    productid:number;
+    productName:string;
+    productType:string;
+    productDescription:String;
     price:number;
 
 }

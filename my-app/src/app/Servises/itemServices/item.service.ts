@@ -10,9 +10,9 @@ import {Employee} from "src/app/Beans/EmployeeTest";
   providedIn: 'root'
 })
 export class ItemService {
-/*
-  private itemUrl='localhost:8080/item/topitems';
-  private employeeUrl='http://localhost:8082/Project1/allEmployees';
+
+  private itemUrl='http://localhost:8082/p2/product/colors';
+ // private employeeUrl='http://localhost:8082/Project1/allEmployees';
 
   constructor( private http: HttpClient) { }
 
@@ -22,14 +22,14 @@ export class ItemService {
       catchError(this.handleError<Item[]>('getTopItems', []))
     );
   }
-
+/*
   getEmployees():Observable<Employee[]>{
     return this.http.get<Employee[]>(this.employeeUrl)
     .pipe(
       catchError(this.handleError<Employee[]>('getTopItems', []))
     );
   }
-
+*/
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
@@ -40,5 +40,5 @@ export class ItemService {
       return of(result as T);
     };
   }
-*/
+
 }
