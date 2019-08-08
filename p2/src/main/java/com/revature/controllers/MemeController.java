@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
+
 import com.revature.beans.*;
 import com.revature.services.*;
 
@@ -30,11 +34,13 @@ public class MemeController {
 		this.memeService = memeService;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/all", method=RequestMethod.GET)
 	public ResponseEntity<List<Meme>> getAllMemes() {
 		return new ResponseEntity<>(memeService.getAllMemes(), HttpStatus.OK);
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/addMeme", method=RequestMethod.POST)
 	public ResponseEntity<String> addMeme(@RequestBody Meme meme) {
 		ResponseEntity<String> resp = null;

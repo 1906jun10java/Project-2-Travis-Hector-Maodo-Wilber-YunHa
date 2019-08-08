@@ -34,6 +34,7 @@ public class PaymentController {
 		this.paymentService = paymentService;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/addPayment", method=RequestMethod.POST)
 	public ResponseEntity<String> addPayment(@RequestBody Payment payment) {
 		ResponseEntity<String> resp = null;
@@ -47,6 +48,7 @@ public class PaymentController {
 		return resp;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/updatePayment", method=RequestMethod.POST)
 	public ResponseEntity<String> updatePayment(@RequestBody Payment payment) {
 		ResponseEntity<String> resp = null;
@@ -60,6 +62,7 @@ public class PaymentController {
 		return resp;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/deletePayment", method=RequestMethod.POST)
 	public ResponseEntity<String> deletePayment(@RequestBody Payment payment) {
 		ResponseEntity<String> resp = null;
@@ -73,6 +76,7 @@ public class PaymentController {
 		return resp;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/getPaymentById/{paymentId}", method=RequestMethod.GET)
 	public ResponseEntity<Payment> getPaymentById(@PathVariable int paymentId) {
 		Payment p = paymentService.getPaymentById(paymentId);
@@ -83,6 +87,7 @@ public class PaymentController {
 		}
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/getPaymentsByUserId/{userId}", method=RequestMethod.GET)
 	public ResponseEntity<List<Payment>> getPaymentsForUser(@PathVariable int userId) {
 		List<Payment> p = paymentService.getPaymentsForUser(userId);

@@ -34,11 +34,13 @@ public class PurchaseController {
 		this.purchaseService = purchaseService;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/all", method=RequestMethod.GET)
 	public ResponseEntity<List<Purchase>> getAllMemes() {
 		return new ResponseEntity<>(purchaseService.getAllPurchases(), HttpStatus.OK);
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/addPurchase", method=RequestMethod.POST)
 	public ResponseEntity<String> addPurchase(@RequestBody Purchase purchase) {
 		ResponseEntity<String> resp = null;
@@ -52,6 +54,7 @@ public class PurchaseController {
 		return resp;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/getPurchaseById/{purchaseId}", method=RequestMethod.GET)
 	public ResponseEntity<Purchase> getPurchaseById(@PathVariable int purchaseId) {
 		Purchase p = purchaseService.getPurchaseById(purchaseId);
@@ -62,6 +65,7 @@ public class PurchaseController {
 		}
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/getPurchasesByUserId/{userId}", method=RequestMethod.GET)
 	public ResponseEntity<List<Purchase>> getPurchasesForUser(@PathVariable int userId) {
 		List<Purchase> p = purchaseService.getPurchasesForUser(userId);

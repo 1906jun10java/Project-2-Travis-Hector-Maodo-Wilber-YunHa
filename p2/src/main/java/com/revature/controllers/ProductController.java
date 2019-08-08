@@ -28,26 +28,31 @@ public class ProductController {
 		this.productService = productService;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/allproducts", method=RequestMethod.GET)
 	public ResponseEntity<List<Product>> getAllProducts() {
 		return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/colors", method=RequestMethod.GET)
 	public ResponseEntity<List<Product>> getProductColors() {
 		return new ResponseEntity<>(productService.getProductColors(), HttpStatus.OK);
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/sizes", method=RequestMethod.GET)
 	public ResponseEntity<List<Product>> getProductSizes() {
 		return new ResponseEntity<>(productService.getProductSizes(), HttpStatus.OK);
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/Types", method=RequestMethod.GET)
 	public ResponseEntity<List<Product>> getProductTypes() {
 		return new ResponseEntity<>(productService.getProductTypes(), HttpStatus.OK);
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@PostMapping // we could also do RequestMapping with RequestMethod.POST
 	public ResponseEntity<String> addProduct(@RequestBody Product product) {
 		ResponseEntity<String> resp = null;

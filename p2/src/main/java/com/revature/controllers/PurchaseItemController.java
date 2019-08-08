@@ -34,6 +34,7 @@ public class PurchaseItemController {
 		this.purchaseItemService = purchaseItemService;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/addPurchaseItem", method=RequestMethod.POST)
 	public ResponseEntity<String> addPurchaseItem(@RequestBody PurchaseItem purchaseItem) {
 		ResponseEntity<String> resp = null;
@@ -47,6 +48,7 @@ public class PurchaseItemController {
 		return resp;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/updatePurchaseItem", method=RequestMethod.POST)
 	public ResponseEntity<String> updatePurchaseItem(@RequestBody PurchaseItem purchaseItem) {
 		ResponseEntity<String> resp = null;
@@ -60,6 +62,7 @@ public class PurchaseItemController {
 		return resp;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/deletePurchaseItem", method=RequestMethod.POST)
 	public ResponseEntity<String> deletePurchaseItem(@RequestBody PurchaseItem purchaseItem) {
 		ResponseEntity<String> resp = null;
@@ -73,6 +76,7 @@ public class PurchaseItemController {
 		return resp;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/getPurchaseItemById/{purchaseItemId}", method=RequestMethod.GET)
 	public ResponseEntity<PurchaseItem> getPurchaseItemById(@PathVariable int purchaseItemId) {
 		PurchaseItem p = purchaseItemService.getPurchaseItemById(purchaseItemId);
@@ -83,6 +87,7 @@ public class PurchaseItemController {
 		}
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/getPurchaseItemByPurchaseId/{purchaseId}", method=RequestMethod.GET)
 	public ResponseEntity<List<PurchaseItem>> getPurchaseItemsForPurchase(@PathVariable int purchaseId) {
 		List<PurchaseItem> p = purchaseItemService.getPurchaseItemsForPurchase(purchaseId);
