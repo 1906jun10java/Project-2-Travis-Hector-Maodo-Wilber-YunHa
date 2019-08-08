@@ -15,8 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.beans.Purchase;
-import com.revature.services.PurchaseService;;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
+
+import com.revature.beans.*;
+import com.revature.services.*;
 
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
@@ -28,5 +32,43 @@ public class PurchaseController {
 	@Autowired
 	public void setPurchaseService(PurchaseService purchaseService) {
 		this.purchaseService = purchaseService;
+	}
+	
+	@RequestMapping(value="/all", method=RequestMethod.GET)
+	public ResponseEntity<List<Purchase>> getAllMemes() {
+		return new ResponseEntity<>(purchaseService.getAllPurchases(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/addPurchase", method=RequestMethod.POST)
+	public ResponseEntity<String> addPurchase(@RequestBody Purchase purchase) {
+		ResponseEntity<String> resp = null;
+		
+		try {
+			purchaseService.addPurchase(purchase);
+			resp = new ResponseEntity<>("PURCHASE CREATED SUCCESSFULLY", HttpStatus.OK);
+		} catch (Exception e) {
+			resp = new ResponseEntity<>("FAILED TO CREATE PURCHASE", HttpStatus.BAD_REQUEST);
+		}
+		return resp;
+	}
+	
+	@RequestMapping(value="/getPurchaseById/{purchaseId}", method=RequestMethod.GET)
+	public ResponseEntity<Purchase> getPurchaseById(@PathVariable int purchaseId) {
+		Purchase p = purchaseService.getPurchaseById(purchaseId);
+		if (p == null) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		} else {
+			return new ResponseEntity<>(p, HttpStatus.OK);
+		}
+	}
+	
+	@RequestMapping(value="/getPurchasesByUserId/{userId}", method=RequestMethod.GET)
+	public ResponseEntity<List<Purchase>> getPurchasesForUser(@PathVariable int userId) {
+		List<Purchase> p = purchaseService.getPurchasesForUser(userId);
+		if (p == null) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		} else {
+			return new ResponseEntity<>(p, HttpStatus.OK);
+		}
 	}
 }
