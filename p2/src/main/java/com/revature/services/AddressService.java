@@ -17,5 +17,21 @@ public class AddressService {
 	public AddressService(AddressDAO addressDAO) {
 		this.addressDAO = addressDAO;
 	}
+	
+	public void addAddress(Address address) {
+		this.addressDAO.addAddress(address);
+	}
+	
+	public Address getAddressById(int addressId) {
+		return this.addressDAO.getAddressById(addressId);
+	}
+	
+	public List<Address> getAddressesForUser(int userId) {
+		return this.addressDAO.getAddressesForUser(userId);
+	}
+	
+	public void updateAddress(Address address) {
+		this.addressDAO.updateAddress(address);
+	}
 
 }
