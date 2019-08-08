@@ -66,9 +66,9 @@ public class PurchaseItemController {
 		
 		try {
 			purchaseItemService.deletePurchaseItem(purchaseItem);
-			resp = new ResponseEntity<>("PURCHASE ITEM DELETE SUCCESSFULLY", HttpStatus.OK);
+			resp = new ResponseEntity<>("PURCHASE ITEM DELETED SUCCESSFULLY", HttpStatus.OK);
 		} catch (Exception e) {
-			resp = new ResponseEntity<>("FAILED TO CREATE DELETE ITEM", HttpStatus.BAD_REQUEST);
+			resp = new ResponseEntity<>("FAILED TO DELETE PURCHASE ITEM", HttpStatus.BAD_REQUEST);
 		}
 		return resp;
 	}
