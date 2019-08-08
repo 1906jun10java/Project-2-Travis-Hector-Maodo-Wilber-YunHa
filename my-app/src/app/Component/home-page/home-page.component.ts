@@ -42,12 +42,10 @@ ngOnDestroy() {
   
   ngOnInit() {
     
+    
     this.itemService.getTopItems()
     .subscribe(items => this.items=items);
     
-   
-   
-  
   }
   
 }  

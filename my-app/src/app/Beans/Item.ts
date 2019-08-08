@@ -1,6 +1,6 @@
 export class Item{
 
-    productid:number;
+    productId:number;
     productName:string;
     productType:string;
     productDescription:String;

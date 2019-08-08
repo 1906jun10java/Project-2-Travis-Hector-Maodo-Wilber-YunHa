@@ -11,7 +11,7 @@ import {Employee} from "src/app/Beans/EmployeeTest";
 })
 export class ItemService {
 
-  private itemUrl='http://localhost:8082/p2/product/colors';
+  private itemUrl='http://localhost:8082/p2/product/allproducts';
  // private employeeUrl='http://localhost:8082/Project1/allEmployees';
 
   constructor( private http: HttpClient) { }

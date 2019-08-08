@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.beans.Product;
 import com.revature.services.ProductService;
 
-@CrossOrigin(origins="http://localhost:4200/*")
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
 @RequestMapping(value="/product")
 public class ProductController {
@@ -27,7 +27,7 @@ public class ProductController {
 	public void setProductService(ProductService productService) {
 		this.productService = productService;
 	}
-	
+	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/allproducts", method=RequestMethod.GET)
 	public ResponseEntity<List<Product>> getAllProducts() {
 		return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
