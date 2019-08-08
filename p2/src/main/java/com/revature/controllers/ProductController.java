@@ -1,4 +1,4 @@
- package com.revature.controllers;
+package com.revature.controllers;
 
 
 import java.util.List;
@@ -27,7 +27,7 @@ public class ProductController {
 	public void setProductService(ProductService productService) {
 		this.productService = productService;
 	}
-	@CrossOrigin(origins="http://localhost:4200")
+	
 	@RequestMapping(value="/allproducts", method=RequestMethod.GET)
 	public ResponseEntity<List<Product>> getAllProducts() {
 		return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
