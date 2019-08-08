@@ -17,5 +17,27 @@ public class PurchaseItemService {
 	public PurchaseItemService(PurchaseItemDAO purchaseItemDAO) {
 		this.purchaseItemDAO = purchaseItemDAO;
 	}
+	
+	public void addPurchaseItem(PurchaseItem purchaseItem) {
+		this.purchaseItemDAO.addPurchaseItem(purchaseItem);
+	}
+	
+	public void updatePurchaseItem(PurchaseItem purchaseItem) {
+		this.purchaseItemDAO.updatePurchaseItem(purchaseItem);
+	}
+	
+	public void deletePurchaseItem(PurchaseItem purchaseItem) {
+		this.purchaseItemDAO.deletePurchaseItem(purchaseItem);
+	}
+	
+	public PurchaseItem getPurchaseItemById(int purchaseItemId) {
+		return this.purchaseItemDAO.getPurchaseItemById(purchaseItemId);
+	}
+	
+	public List<PurchaseItem> getPurchaseItemsForPurchase(int purchaseId) {
+		return this.purchaseItemDAO.getPurchaseItemsForPurchase(purchaseId);
+	}
+	
+	
 
 }
