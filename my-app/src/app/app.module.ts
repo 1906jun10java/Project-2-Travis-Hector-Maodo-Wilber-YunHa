@@ -24,6 +24,7 @@ import { fakeBackendProvider } from './helper/fakebackend';
 import { ErrorInterceptor } from './Servises/authenticationService/error.interceptor';
 import { ItemDetailComponent } from './Component/item-detail/item-detail.component';
 import { ItemListComponent } from './Component/item-list/item-list.component';
+import { StorageServiceModule } from 'ngx-webstorage-service';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { ItemListComponent } from './Component/item-list/item-list.component';
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    StorageServiceModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, 
     useClass: ErrorInterceptor, multi: true },

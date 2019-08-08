@@ -46,6 +46,7 @@ ngOnDestroy() {
     this.itemService.getTopItems()
     .subscribe(items => this.items=items);
     
+    
   }
   
 }  

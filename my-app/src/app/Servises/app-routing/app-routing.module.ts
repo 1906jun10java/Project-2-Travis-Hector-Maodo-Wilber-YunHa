@@ -10,6 +10,8 @@ import {CollectibleComponent} from 'src/app/Component/collectible/collectible.co
 import{UserPageComponent} from 'src/app/Component/user-page/user-page.component'
 import{BillingInfoComponent} from'src/app/Component/billing-info/billing-info.component'
 import{ShippingInfoComponent} from'src/app/Component/shipping-info/shipping-info.component'
+import { ItemDetailComponent } from 'src/app/Component/item-detail/item-detail.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -22,7 +24,8 @@ const routes: Routes = [
   {  path: 'Collectibles', component: CollectibleComponent },
   {  path: 'UserPage', component: UserPageComponent },
   {  path: 'Billing', component: BillingInfoComponent },
-  {  path: 'Shipping', component: ShippingInfoComponent }
+  {  path: 'Shipping', component: ShippingInfoComponent },
+  {  path: 'item/:id', component: ItemDetailComponent }
 
 ];
 

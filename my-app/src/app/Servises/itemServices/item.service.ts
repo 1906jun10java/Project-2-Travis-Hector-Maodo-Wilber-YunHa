@@ -11,15 +11,22 @@ import {Employee} from "src/app/Beans/EmployeeTest";
 })
 export class ItemService {
 
-  private itemUrl='http://localhost:8082/p2/product/allproducts';
+  private itemUrl='http://localhost:8082/p2/product';
  // private employeeUrl='http://localhost:8082/Project1/allEmployees';
 
   constructor( private http: HttpClient) { }
 
   getTopItems(): Observable<Item[]>{
-    return this.http.get<Item[]>(this.itemUrl)
+    return this.http.get<Item[]>(this.itemUrl+"/allproducts")
     .pipe(
       catchError(this.handleError<Item[]>('getTopItems', []))
+    );
+  }
+
+  getItemById(id:string): Observable<Item>{
+    return this.http.get<Item>(`${this.itemUrl}/${id}`)
+    .pipe(
+      catchError(this.handleError<Item>('getTopItems', ))
     );
   }
 /*

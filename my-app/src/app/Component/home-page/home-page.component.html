@@ -27,7 +27,7 @@
     <p>"Top" Item List</p>
     <ul><!--Will need to change this back to items when im done testing the thing-->
         <li *ngFor="let item of items" >
-            <img src="{{item.meme.memeImg}}">
+            <a routerLink="/item/{{item.productId}}"> <img src="{{item.meme.memeImg}}"> </a>
         </li>
     </ul>
     <br>

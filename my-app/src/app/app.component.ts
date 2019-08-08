@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/Servises/authenticationService';
 import { User } from 'src/app/Beans/User';
+import { Item } from './Beans/Item';
 
 
 @Component({
@@ -9,18 +10,17 @@ import { User } from 'src/app/Beans/User';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent implements OnInit {
   title = 'Mememe Store';
   currentUser: User;
- 
+  cartList:Item[];
  /*
  currentUser:User={
     id:1,
     name:'stuff',
     email:'emailand stuff'
-
-
-
 
   };
 */
@@ -38,6 +38,10 @@ export class AppComponent implements OnInit {
         this.router.navigate(['/home']);
     }
     ngOnInit(){
-      console.log(this.title);
+     
+      if(localStorage.length===0){
+        localStorage.setItem("cartList",JSON.stringify(this.cartList));
+      }
+     
     }
 }
