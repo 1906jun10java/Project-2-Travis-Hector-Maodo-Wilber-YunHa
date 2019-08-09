@@ -25,6 +25,7 @@ import { ItemDetailComponent } from './Component/item-detail/item-detail.compone
 import { ItemListComponent } from './Component/item-list/item-list.component';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 import { CarouselComponent } from './Component/carousel/carousel.component';
+import { CheckoutComponent } from './Component/checkout/checkout.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { CarouselComponent } from './Component/carousel/carousel.component';
     ItemDetailComponent,
     ItemListComponent,
     CarouselComponent,
+    CheckoutComponent,
    
   ],
   imports: [
