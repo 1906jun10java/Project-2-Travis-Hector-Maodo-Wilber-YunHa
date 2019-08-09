@@ -20,11 +20,15 @@ export class CartComponent implements OnInit {
   });
    }
 
+   coolNum:number=Math.floor((Math.random() * 6) + 1);
+   memeNum:number=Math.floor((Math.random() * 4) + 1)
+   
+
   cartList:Item[];
   isNotEmpty:boolean;
   currentUser:User;
   currentUserSubscription: Subscription;
-   grandTotal:number=0;
+  grandTotal:number=0;
   
   remove(id:number){
    this.cartList= this.cartService.deleteFromList(id);

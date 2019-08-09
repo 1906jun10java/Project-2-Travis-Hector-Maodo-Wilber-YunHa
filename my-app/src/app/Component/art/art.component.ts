@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtComponent implements OnInit {
 
+  coolNum:number=Math.floor((Math.random() * 6) + 1);
+  memeNum:number=Math.floor((Math.random() * 4) + 1)
+  
   constructor() { }
 
   ngOnInit() {

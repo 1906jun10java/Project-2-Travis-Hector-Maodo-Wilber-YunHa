@@ -1,0 +1,23 @@
+nav {
+    position: relative;
+    text-align: center;
+    font-size: 25px;
+    background-color: lightblue;
+}
+
+.poggers {
+    position: absolute;
+    top: 135px;
+    left: -90px;
+    z-index: 1;
+}
+.material{
+   border-radius: 50%;
+   text-align: center;
+   float: left;
+}
+#girl{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
