@@ -41,7 +41,6 @@ private LoginService loginService;
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public User getCredentials(@RequestBody Credentials credentials) {
-		System.out.println(credentials);
 		return loginService.loginVerification(credentials);
 	}
 	
@@ -51,10 +50,10 @@ private LoginService loginService;
 		ResponseEntity<String> resp = null;
 		try {
 			loginService.signUp(user);
-			resp = new ResponseEntity<>("USER CREATED SUCCESSFULLY", HttpStatus.OK);
+			resp = new ResponseEntity<>(HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
-			resp = new ResponseEntity<>("FAILED TO CREATE USER", HttpStatus.BAD_REQUEST);
+			resp = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		return resp;
 	}

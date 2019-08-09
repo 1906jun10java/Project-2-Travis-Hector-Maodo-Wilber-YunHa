@@ -46,18 +46,18 @@ public class LoginService {
 		creds.setEmail(user.getEmail());
 		creds.setPassword(user.getPassword());
 
-		/*
-		 * if (tempUser.getEmail().isEmpty() || creds.getPassword().isEmpty()) {
-		 * System.out.println("on first validation"); return false; }else if
-		 * (loginDAO.getUserByEmail(tempUser.getEmail()) == null) {
-		 * System.out.println("on second validation");
-		 * System.out.println(loginDAO.getUserByEmail(tempUser.getEmail())); return
-		 * false; }else { System.out.println("on third validation");
-		 */
-			loginDAO.userSignUp(tempUser, creds);
-			return true;
+		List<User> uList = new ArrayList<>();
+		uList = loginDAO.getAllUsers();
+		for (User existingUsers : uList) {
+			if(creds.getEmail().equals(existingUsers.getEmail())) {
+			  System.out.println("email exist");
+			  return false;
+			}
 		}
-	
+			System.out.println("creating user");
+		  loginDAO.userSignUp(tempUser, creds);
+		  return true;
+	}
 
 	public List<User> getAllUsers() {
 		return this.loginDAO.getAllUsers();
