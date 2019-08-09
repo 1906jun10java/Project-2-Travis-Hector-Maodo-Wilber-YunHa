@@ -47,10 +47,11 @@ public class LoginDAOImpl implements LoginDAO{
 	}
 
 	@Override
+	@Transactional
 	public void userSignUp(User user, Credentials cred) {
 		Session s = sessionFactory.getCurrentSession();
-		s.persist(user);
-		s.persist(cred);
+		s.save(user);
+		s.save(cred);
 	}
 
 	@Override

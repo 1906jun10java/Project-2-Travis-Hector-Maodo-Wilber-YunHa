@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.Credentials;
+import com.revature.beans.Parsing;
 import com.revature.beans.User;
 import com.revature.services.LoginService;;
 
@@ -42,5 +43,19 @@ private LoginService loginService;
 	public User getCredentials(@RequestBody Credentials credentials) {
 		System.out.println(credentials);
 		return loginService.loginVerification(credentials);
+	}
+	
+	@CrossOrigin(origins="http://localhost:4200")
+	@PostMapping(value="/signUp", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<String> addUSer(@RequestBody Parsing user) {
+		ResponseEntity<String> resp = null;
+		try {
+			loginService.signUp(user);
+			resp = new ResponseEntity<>("USER CREATED SUCCESSFULLY", HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			resp = new ResponseEntity<>("FAILED TO CREATE USER", HttpStatus.BAD_REQUEST);
+		}
+		return resp;
 	}
 }
