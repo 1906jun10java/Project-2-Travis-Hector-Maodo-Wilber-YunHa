@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
+
 import com.revature.beans.*;
 import com.revature.services.*;
 
@@ -92,5 +96,19 @@ public class PaymentController {
 		} else {
 			return new ResponseEntity<>(p, HttpStatus.OK);
 		}
+	}
+	
+	@CrossOrigin(origins="http://localhost:4200")
+	@RequestMapping(value="/addOrUpdate", method=RequestMethod.PUT)
+	public ResponseEntity<String> addOrUpdatePayment(@RequestBody Payment payment) {
+		ResponseEntity<String> resp = null;
+		
+		try {
+			paymentService.addOrUpdatePayment(payment);
+			resp = new ResponseEntity<>("PAYMENT CREATED OR UPDATED SUCCESSFULLY", HttpStatus.OK);
+		} catch (Exception e) {
+			resp = new ResponseEntity<>("FAILED TO CREATE OR UPDATE PAYMENT", HttpStatus.BAD_REQUEST);
+		}
+		return resp;
 	}
 }
