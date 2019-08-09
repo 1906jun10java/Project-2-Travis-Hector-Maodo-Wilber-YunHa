@@ -54,10 +54,7 @@ shippingForm=this.fb.group({
 
 onSubmit() {
   console.log(this.shippingForm);
-  if(this.shippingForm.value.address===null || this.shippingForm.value.zip===null){
-    this.shippingForm.value.address=this.addressInfo[0].addressLine1;
-    this.shippingForm.value.zip=this.addressInfo[0].zipCode;
-  }
+  
   if(this.shippingForm.status==="INVALID"){
     alert("No good fam,lolololoolololool")
   }
