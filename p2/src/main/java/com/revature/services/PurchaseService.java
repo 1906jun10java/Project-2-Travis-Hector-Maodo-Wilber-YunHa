@@ -38,7 +38,13 @@ public class PurchaseService {
 	}
 	
 	public void completePurchase(List<Object> cartItems) {
-		System.out.println(cartItems);
+		System.out.println((User)cartItems.get(0));
+		System.out.println(cartItems.get(1));
+		System.out.println(cartItems.get(2));
+		System.out.println(cartItems.get(3));
+		System.out.println(cartItems.get(4));
+		System.out.println(cartItems.get(5));
+		
 		User user = (User) cartItems.get(0);
 		System.out.println(user);
 		Double total = (Double) cartItems.get(1);
@@ -51,14 +57,14 @@ public class PurchaseService {
 		System.out.println(date);
 		
 		Purchase purchase = new Purchase(user, total, payment, address, date);
-		System.out.println(purchase);
+		//System.out.println(purchase);
 		purchaseDAO.addPurchase(purchase);
 		
 		List<Product> purchaseItems = (List<Product>) cartItems.get(5);
 		
 		for (Product product : purchaseItems) {
 			productDAO.addProduct(product);
-			System.out.println(product);
+			//System.out.println(product);
 		}
 	}
 }
