@@ -76,10 +76,10 @@ export class BillingInfoComponent implements OnInit {
       
 
       if(this.valid === true){
-        alert("Billing Info Updated");
+       
       }
       else{
-        alert("Billing Not Updated");
+      
       }
   
     }

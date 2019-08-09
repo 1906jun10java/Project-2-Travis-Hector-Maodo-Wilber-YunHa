@@ -56,7 +56,7 @@ onSubmit() {
   console.log(this.shippingForm);
   
   if(this.shippingForm.status==="INVALID"){
-    alert("No good fam,lolololoolololool")
+   
   }
   else{
     
