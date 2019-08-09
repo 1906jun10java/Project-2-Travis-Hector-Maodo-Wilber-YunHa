@@ -54,12 +54,17 @@ public class Product {
 	@Column(name="QUANTITY_IN_CART")
 	private int quantityInCart;
 	
+	@OneToOne
+	@JoinColumn(name="PURCHASE_ID", referencedColumnName = "PURCHASE_ID")
+	private Purchase purchase;
+	
 	public Product() {
 		super();
 	}
 
 	public Product(int productId, Meme meme, String productName, String productDescription, String productType,
-			String color, String gender, String size, double price, int quantity, int numberSold, int quantityInCart) {
+			String color, String gender, String size, double price, int quantity, int numberSold, int quantityInCart,
+			Purchase purchase) {
 		super();
 		this.productId = productId;
 		this.meme = meme;
@@ -73,10 +78,12 @@ public class Product {
 		this.quantity = quantity;
 		this.numberSold = numberSold;
 		this.quantityInCart = quantityInCart;
+		this.purchase = purchase;
 	}
 
 	public Product(Meme meme, String productName, String productDescription, String productType,
-			String color, String gender, String size, double price, int quantity, int numberSold, int quantityInCart) {
+			String color, String gender, String size, double price, int quantity, int numberSold, int quantityInCart,
+			Purchase purchase) {
 		super();
 		this.meme = meme;
 		this.productName = productName;
@@ -92,7 +99,8 @@ public class Product {
 	}
 	
 	public Product(Meme meme, String productName, String productDescription, String productType,
-			String color, String gender, String size, double price, int quantity, int quantityInCart) {
+			String color, String gender, String size, double price, int quantity, int quantityInCart,
+			Purchase purchase) {
 		super();
 		this.meme = meme;
 		this.productName = productName;
@@ -104,10 +112,11 @@ public class Product {
 		this.price = price;
 		this.quantity = quantity;
 		this.quantityInCart = quantityInCart;
+		this.purchase = purchase;
 	}
 	
 	public Product(Meme meme, String productName, String productDescription, String productType,
-			double price, int quantity, int quantityInCart) {
+			double price, int quantity, int quantityInCart, Purchase purchase) {
 		super();
 		this.meme = meme;
 		this.productName = productName;
@@ -116,6 +125,7 @@ public class Product {
 		this.price = price;
 		this.quantity = quantity;
 		this.quantityInCart = quantityInCart;
+		this.purchase = purchase;
 	}
 	
 	public Product(Meme meme, String productName, String productDescription, String productType,
@@ -224,12 +234,20 @@ public class Product {
 		this.quantityInCart = quantityInCart;
 	}
 
+	public Purchase getPurchase() {
+		return purchase;
+	}
+
+	public void setPurchase(Purchase purchase) {
+		this.purchase = purchase;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", meme=" + meme + ", productName=" + productName
 				+ ", productDescription=" + productDescription + ", productType=" + productType + ", color=" + color
 				+ ", gender=" + gender + ", size=" + size + ", price=" + price + ", quantity=" + quantity
-				+ ", numberSold=" + numberSold + ", quantityInCart=" + quantityInCart + "]";
+				+ ", numberSold=" + numberSold + ", quantityInCart=" + quantityInCart + ", purchase=" + purchase + "]";
 	}
 
 }
