@@ -65,7 +65,10 @@ onSubmit() {
     
     this.newUserAddress=this.shippingForm.value;
     this.newUserAddress.user=this.currentUser;
-    this.newUserAddress.addressId=this.addressInfo[0].addressId;
+    if(this.addressInfo[0]!==undefined){
+      this.newUserAddress.addressId=this.addressInfo[0].addressId;
+    }
+    
     console.log(this.newUserAddress);
     this.shippingInfoService.putCurrentUserShipping(this.newUserAddress)
     .subscribe(valid =>this.valid=valid); 
@@ -73,6 +76,9 @@ onSubmit() {
    
 
   }
+
+  this.shippingInfoService.getCurrentUserShipping(this.currentUser.userId)
+  .subscribe(address=> this.addressInfo=address);
   
 }
 
