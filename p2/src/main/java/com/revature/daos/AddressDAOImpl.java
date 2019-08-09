@@ -49,7 +49,6 @@ public class AddressDAOImpl implements AddressDAO {
             Query query = session.createQuery(hql);
             query.setParameter("addressLine1", address.getAddressLine1());
             query.setParameter("zipCode", address.getZipCode());
-            //query.setParameter("addressId", address.getAddressId());
             int result = query.executeUpdate();
             System.out.println("Rows affected: " + result);
 			
@@ -69,6 +68,10 @@ public class AddressDAOImpl implements AddressDAO {
 		return s.createQuery("from Address where USER_ID = " + userId).getResultList();
 	}
 	
-	
+	@Override
+	public void addOrUpdateAddress(Address address) {
+		sessionFactory.getCurrentSession().saveOrUpdate(address);
+		
+	}
 	
 }

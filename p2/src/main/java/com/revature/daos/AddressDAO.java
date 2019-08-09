@@ -14,4 +14,6 @@ public interface AddressDAO {
 	
 	public void updateAddress(Address address);
 	
+	public void addOrUpdateAddress(Address address);
+	
 }
