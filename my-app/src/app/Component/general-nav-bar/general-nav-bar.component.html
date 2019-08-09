@@ -16,9 +16,9 @@
             <a (click)="logout()">Logout</a>
         </div>
         </li>
-        <li>
+        <li *ngIf="currentUser;">
             <a routerLink="/Cart">Cart </a>
-        </li>
+        </li>  
     </ul>
 </div>
    
