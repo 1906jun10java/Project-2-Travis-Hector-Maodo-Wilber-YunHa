@@ -26,12 +26,6 @@ public class Purchase {
 	@JoinColumn(name="USER_ID", referencedColumnName = "USER_ID")
 	private User user;
 	
-	@Column(name="TAX")
-	private double tax;
-	
-	@Column(name="SHIPPING_HANDLING")
-	private double shippingAndHandling;
-	
 	@Column(name="TOTAL")
 	private double total;
 	
@@ -56,34 +50,21 @@ public class Purchase {
 	@Column(name="ORDER_STATUS")
 	private String orderStatus;
 	
+	@Column(name="EMAIL")
+	private String email;
+	
 	public Purchase() {
 		super();
 	}
 
-	public Purchase(int purchaseId, User user, double total, String nameOfRecipient, Payment payment,
+	public Purchase(int purchaseId, User user, double total, String nameOfRecipient, String email, Payment payment,
 			Address billingAddress, Address shippingAddress, Date purchaseDate, String orderStatus) {
 		super();
 		this.purchaseId = purchaseId;
 		this.user = user;
 		this.total = total;
 		this.nameOfRecipient = nameOfRecipient;
-		this.payment = payment;
-		this.billingAddress = billingAddress;
-		this.shippingAddress = shippingAddress;
-		this.purchaseDate = purchaseDate;
-		this.orderStatus = orderStatus;
-	}
-
-	public Purchase(int purchaseId, User user, double tax, double shippingAndHandling, double total,
-			String nameOfRecipient, Payment payment, Address billingAddress, Address shippingAddress, Date purchaseDate,
-			String orderStatus) {
-		super();
-		this.purchaseId = purchaseId;
-		this.user = user;
-		this.tax = tax;
-		this.shippingAndHandling = shippingAndHandling;
-		this.total = total;
-		this.nameOfRecipient = nameOfRecipient;
+		this.email = email;
 		this.payment = payment;
 		this.billingAddress = billingAddress;
 		this.shippingAddress = shippingAddress;
@@ -91,15 +72,26 @@ public class Purchase {
 		this.orderStatus = orderStatus;
 	}
 	
-	public Purchase(User user, double tax, double shippingAndHandling, double total,
-			String nameOfRecipient, Payment payment, Address billingAddress, Address shippingAddress, Date purchaseDate,
-			String orderStatus) {
+	public Purchase(User user, double total, String nameOfRecipient, String email, Payment payment, Address billingAddress, 
+			Address shippingAddress, Date purchaseDate, String orderStatus) {
 		super();
 		this.user = user;
-		this.tax = tax;
-		this.shippingAndHandling = shippingAndHandling;
 		this.total = total;
 		this.nameOfRecipient = nameOfRecipient;
+		this.email = email;
+		this.payment = payment;
+		this.billingAddress = billingAddress;
+		this.shippingAddress = shippingAddress;
+		this.purchaseDate = purchaseDate;
+		this.orderStatus = orderStatus;
+	}
+	
+	public Purchase(double total, String nameOfRecipient, String email, Payment payment, Address billingAddress, 
+			Address shippingAddress, Date purchaseDate, String orderStatus) {
+		super();
+		this.total = total;
+		this.nameOfRecipient = nameOfRecipient;
+		this.email = email;
 		this.payment = payment;
 		this.billingAddress = billingAddress;
 		this.shippingAddress = shippingAddress;
@@ -180,28 +172,20 @@ public class Purchase {
 		this.orderStatus = orderStatus;
 	}
 
-	public double getTax() {
-		return tax;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setTax(double tax) {
-		this.tax = tax;
-	}
-
-	public double getShippingAndHandling() {
-		return shippingAndHandling;
-	}
-
-	public void setShippingAndHandling(double shippingAndHandling) {
-		this.shippingAndHandling = shippingAndHandling;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Override
 	public String toString() {
-		return "Purchase [purchaseId=" + purchaseId + ", user=" + user + ", tax=" + tax + ", shippingAndHandling="
-				+ shippingAndHandling + ", total=" + total + ", nameOfRecipient=" + nameOfRecipient + ", payment="
-				+ payment + ", billingAddress=" + billingAddress + ", shippingAddress=" + shippingAddress
-				+ ", purchaseDate=" + purchaseDate + ", orderStatus=" + orderStatus + "]";
+		return "Purchase [purchaseId=" + purchaseId + ", user=" + user + ", total=" + total + ", nameOfRecipient="
+				+ nameOfRecipient + ", payment=" + payment + ", billingAddress=" + billingAddress + ", shippingAddress="
+				+ shippingAddress + ", purchaseDate=" + purchaseDate + ", orderStatus=" + orderStatus + ", email="
+				+ email + "]";
 	}
 	
 }

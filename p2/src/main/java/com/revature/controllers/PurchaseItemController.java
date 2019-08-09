@@ -30,4 +30,68 @@ public class PurchaseItemController {
 		this.purchaseItemService = purchaseItemService;
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
+	@RequestMapping(value="/addPurchaseItem", method=RequestMethod.POST)
+	public ResponseEntity<String> addPurchaseItem(@RequestBody PurchaseItem purchaseItem) {
+		ResponseEntity<String> resp = null;
+		
+		try {
+			purchaseItemService.addPurchaseItem(purchaseItem);
+			resp = new ResponseEntity<>("PURCHASE ITEM CREATED SUCCESSFULLY", HttpStatus.OK);
+		} catch (Exception e) {
+			resp = new ResponseEntity<>("FAILED TO CREATE PURCHASE ITEM", HttpStatus.BAD_REQUEST);
+		}
+		return resp;
+	}
+	
+	@CrossOrigin(origins="http://localhost:4200")
+	@RequestMapping(value="/updatePurchaseItem", method=RequestMethod.POST)
+	public ResponseEntity<String> updatePurchaseItem(@RequestBody PurchaseItem purchaseItem) {
+		ResponseEntity<String> resp = null;
+		
+		try {
+			purchaseItemService.updatePurchaseItem(purchaseItem);
+			resp = new ResponseEntity<>("PURCHASE ITEM UPDATED SUCCESSFULLY", HttpStatus.OK);
+		} catch (Exception e) {
+			resp = new ResponseEntity<>("FAILED TO UPDATE PURCHASE ITEM", HttpStatus.BAD_REQUEST);
+		}
+		return resp;
+	}
+	
+	@CrossOrigin(origins="http://localhost:4200")
+	@RequestMapping(value="/deletePurchaseItem", method=RequestMethod.POST)
+	public ResponseEntity<String> deletePurchaseItem(@RequestBody PurchaseItem purchaseItem) {
+		ResponseEntity<String> resp = null;
+		
+		try {
+			purchaseItemService.deletePurchaseItem(purchaseItem);
+			resp = new ResponseEntity<>("PURCHASE ITEM DELETED SUCCESSFULLY", HttpStatus.OK);
+		} catch (Exception e) {
+			resp = new ResponseEntity<>("FAILED TO DELETE PURCHASE ITEM", HttpStatus.BAD_REQUEST);
+		}
+		return resp;
+	}
+	
+	@CrossOrigin(origins="http://localhost:4200")
+	@RequestMapping(value="/getPurchaseItemById/{purchaseItemId}", method=RequestMethod.GET)
+	public ResponseEntity<PurchaseItem> getPurchaseItemById(@PathVariable int purchaseItemId) {
+		PurchaseItem p = purchaseItemService.getPurchaseItemById(purchaseItemId);
+		if (p == null) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		} else {
+			return new ResponseEntity<>(p, HttpStatus.OK);
+		}
+	}
+	
+	@CrossOrigin(origins="http://localhost:4200")
+	@RequestMapping(value="/getPurchaseItemByPurchaseId/{purchaseId}", method=RequestMethod.GET)
+	public ResponseEntity<List<PurchaseItem>> getPurchaseItemsForPurchase(@PathVariable int purchaseId) {
+		List<PurchaseItem> p = purchaseItemService.getPurchaseItemsForPurchase(purchaseId);
+		if (p == null) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		} else {
+			return new ResponseEntity<>(p, HttpStatus.OK);
+		}
+	}
+	
 }

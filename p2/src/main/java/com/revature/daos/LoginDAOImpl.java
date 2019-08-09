@@ -47,6 +47,7 @@ public class LoginDAOImpl implements LoginDAO{
 	}
 
 	@Override
+
 	public Credentials getCredentials(int id) {
 		return sessionFactory.getCurrentSession().get(Credentials.class, id);
 	}
@@ -56,5 +57,3 @@ public class LoginDAOImpl implements LoginDAO{
 			Session s = sessionFactory.getCurrentSession();
 			s.persist(user);
 	}
-
-}

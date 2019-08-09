@@ -41,9 +41,11 @@ private LoginService loginService;
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public User getCredentials(@RequestBody Credentials credentials) {
+
 		return loginService.loginVerification(credentials);
 	}
 	
+<<<<<<< HEAD
 	@CrossOrigin(origins="http://localhost:4200")
 	@PostMapping(value="/signUp", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> userSignUp(@RequestBody Parsing user) {
@@ -56,5 +58,18 @@ private LoginService loginService;
 			resp = new ResponseEntity<>("FAILED TO CREATE USER", HttpStatus.BAD_REQUEST);
 		}
 		return resp;
+=======
+	@CrossOrigin(value="/signUp", origins="http://localhost:4200")
+	@ResponseStatus(HttpStatus.OK)
+	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public boolean addUser(@RequestBody Parsing user) {
+		return loginService.signUp(user);
+>>>>>>> 26adc4b2893a505914b95e6a7cc17aea52d81274
 	}
 }
+
+		System.out.println(credentials);
+		return loginService.loginVerification(credentials);
+	}
+}
+

@@ -10,4 +10,5 @@ public interface ProductDAO {
 	public List<Product> getProductColors();
 	public List<Product> getProductSizes();
 	public List<Product> getProductTypes();
+	public Product getProductById(int productId);
 }

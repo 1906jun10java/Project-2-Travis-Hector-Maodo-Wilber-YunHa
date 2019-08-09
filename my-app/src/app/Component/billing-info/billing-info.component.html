@@ -1,0 +1,49 @@
+
+<h4>This is you most up to date Billing info
+    <br>
+    Note that card number and securety number are not shown
+</h4>
+
+<form [formGroup]="billingForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="CardNum">Card Number</label>
+        <input formControlName="cardNumber" type="number" required minlength="16" 
+        maxlength="16"[ngClass]="{ 'is-invalid': submitted && f.cardNumber.errors }" />
+        <div *ngIf="submitted && f.cardNumber.errors" class="invalid-feedback">
+            <div *ngIf="f.cardNumber.errors.required">Card number is required</div>
+        </div> 
+      </div>
+      
+      <div class="form-group">
+        <label for="sNum">Security Number</label>
+        <input formControlName="securetyNumber" type="password" required minlength="3" 
+        maxlength="3"[ngClass]="{ 'is-invalid': submitted && f.securetyNumber.errors }" />
+        <div *ngIf="submitted && f.securetyNumber.errors" class="invalid-feedback">
+            <div *ngIf="f.securetyNumber.errors.required">Secruity Number is required</div>
+        </div>
+      </div>
+      
+      
+      <div class="form-group">
+        <label for="CardName">Name On Card</label>
+        <input formControlName="nameOnCard" placeholder="{{billingInfo.nameOnCard}}" type="text"[ngClass]="{ 'is-invalid': submitted && f.nameOnCard.errors }" />
+        <div *ngIf="submitted && f.nameOnCard.errors" class="invalid-feedback">
+            <div *ngIf="f.nameOnCard.errors.required">Name on Card is required</div>
+        </div>
+      </div>                                <!--Making some error-->
+      
+      <div class="form-group">
+        <label for="Expiration ">Card Expiration </label>
+        <input formControlName="cardExpiration" placeholder="{{billingInfo.exp}}" type="month" [ngClass]="{ 'is-invalid': submitted && f.cardExpiration.errors }" />
+        <div *ngIf="submitted && f.cardExpiration.errors" class="invalid-feedback">
+            <div *ngIf="f.cardExpiration.errors.required">Card Expiration is required</div>
+        </div>
+      </div>
+
+      <div>
+          <button (click)="onSubmit()" [disabled]="!billingForm.valid" class="btn btn-primary">
+            Update
+          </button>
+      </div>
+      
+</form>
