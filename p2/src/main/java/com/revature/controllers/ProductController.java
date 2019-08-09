@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.Address;
@@ -82,6 +83,50 @@ public class ProductController {
 	@RequestMapping(value="/random", method=RequestMethod.GET)
 	public ResponseEntity<List<Product>> getRandomizedProducts() {
 		return new ResponseEntity<>(productService.getRandomizedProducts(), HttpStatus.OK);
+	}
+	
+	@CrossOrigin(origins="http://localhost:4200")
+	@RequestMapping(value="/getColor/{color}", method=RequestMethod.GET)
+	public ResponseEntity<List<Product>> getProductsByColor(@PathVariable String color) {
+		List<Product> p = productService.getProductsByColor(color);
+		if (p == null) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		} else {
+			return new ResponseEntity<>(p, HttpStatus.OK);
+		}
+	}
+	
+	@CrossOrigin(origins="http://localhost:4200")
+	@RequestMapping(value="/getGender/{gender}", method=RequestMethod.GET)
+	public ResponseEntity<List<Product>> getProductsByGender(@PathVariable String gender) {
+		List<Product> p = productService.getProductsByGender(gender);
+		if (p == null) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		} else {
+			return new ResponseEntity<>(p, HttpStatus.OK);
+		}
+	}
+	
+	@CrossOrigin(origins="http://localhost:4200")
+	@RequestMapping(value="/getType/{type}", method=RequestMethod.GET)
+	public ResponseEntity<List<Product>> getProductsByType(@PathVariable String type) {
+		List<Product> p = productService.getProductsByType(type);
+		if (p == null) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		} else {
+			return new ResponseEntity<>(p, HttpStatus.OK);
+		}
+	}
+	
+	@CrossOrigin(origins="http://localhost:4200")
+	@RequestMapping(value="/getSize/{size}", method=RequestMethod.GET)
+	public ResponseEntity<List<Product>> getProductsBySize(@PathVariable String size) {
+		List<Product> p = productService.getProductsBySize(size);
+		if (p == null) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+		} else {
+			return new ResponseEntity<>(p, HttpStatus.OK);
+		}
 	}
 	
 }
