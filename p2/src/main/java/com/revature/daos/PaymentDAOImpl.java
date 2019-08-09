@@ -39,7 +39,7 @@ public class PaymentDAOImpl implements PaymentDAO {
 			tx = session.beginTransaction();
 			
 			String hql = "UPDATE Payment set cardNumber = :cardNumber, nameOnCard = :nameOnCard, expirationDate = :expirationDate, "
-			 + "securityCode = :securityCode, cardType = :cardType, WHERE paymentId = " + payment.getPaymentId();
+			 + "securityCode = :securityCode, cardType = :cardType WHERE paymentId = " + payment.getPaymentId();
             Query query = session.createQuery(hql);
             query.setParameter("cardNumber", payment.getCardNumber());
             query.setParameter("nameOnCard", payment.getNameOnCard());
