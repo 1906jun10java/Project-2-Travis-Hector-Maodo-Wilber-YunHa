@@ -15,11 +15,15 @@
            <p>
                Price: ${{currentItem.price}}
            </p>
-          
+           <div *ngIf="currentUser; else notShow">
            <div *ngIf="currentItem">
                <button (click)="addToCart()">
                  Add To Cart
                 </button>
+                </div>
+                <ng-template #notShow>
+                        <a></a>
+                    </ng-template>
            </div>
           
        </div>

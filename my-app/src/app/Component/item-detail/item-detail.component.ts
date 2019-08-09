@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { ItemService } from 'src/app/Servises/itemServices/item.service';
 import { Item } from 'src/app/Beans/Item';
 import { CartServiceService } from 'src/app/Servises/CartService/cart-service.service';
+import { User } from 'src/app/Beans';
+import { Subscription } from 'rxjs';
+import { UserService, AuthenticationService } from 'src/app/Servises/authenticationService';
 
 @Component({
   selector: 'app-item-detail',
@@ -10,9 +13,17 @@ import { CartServiceService } from 'src/app/Servises/CartService/cart-service.se
   styleUrls: ['./item-detail.component.css']
 })
 export class ItemDetailComponent implements OnInit {
+  currentUser: User;
+  currentUserSubscription: Subscription;
+  users: User[] = [];
 
   public href: String = "";
-  constructor(private router: Router,private itemService:ItemService,private cartService : CartServiceService) { }
+  constructor(private router: Router,private authenticationService: AuthenticationService,
+    private userService: UserService,private itemService:ItemService,private cartService : CartServiceService) {
+    this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
+    this.currentUser = user;
+});
+ }
   currentItem:Item;
   
   
