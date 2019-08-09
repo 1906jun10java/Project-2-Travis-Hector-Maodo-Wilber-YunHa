@@ -11,5 +11,11 @@ public interface ProductDAO {
 	public List<Product> getProductSizes();
 	public List<Product> getProductTypes();
 	public Product getProductById(int productId);
-	public Product getProductCritiria(String color, String size, String type, String gender);
+	public List<Product> getRandomizedProducts();
+	/*
+	public List<Product> getProductsByColor(String color);
+	public List<Product> getProductsByGender(String gender);
+	public List<Product> getProductsByType(String type);
+	public List<Product> getProductsBySize(String size);
+	*/
 }

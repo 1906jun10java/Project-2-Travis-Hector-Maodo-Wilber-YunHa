@@ -1,11 +1,20 @@
 package com.revature.daos;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+//import javax.persistence.criteria.CriteriaQuery;
 import javax.transaction.Transactional;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.CriteriaQuery;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -57,8 +66,36 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	@Override
-	public Product getProductCritiria(String color, String size, String type, String gender) {
-		
+	public List<Product> getRandomizedProducts() {
+		Session s = sessionFactory.getCurrentSession();
+		return s.createQuery("from Product").getResultList();
 	}
+	
+	/*
+	@Override
+	public List<Product> getProductsByColor(String color) {
+		Session s = sessionFactory.getCurrentSession();
+		return s.createQuery("from Product where PRODUCT_COLOR = " + color).getResultList();
+	}
+	
+	@Override
+	public List<Product> getProductsByGender(String gender) {
+		Session s = sessionFactory.getCurrentSession();
+		return s.createQuery("from Product where PRODUCT_GENDER = " + gender).getResultList();
+	}
+	
+	@Override
+	public List<Product> getProductsByType(String type) {
+		Session s = sessionFactory.getCurrentSession();
+		return s.createQuery("from Product where PRODUCT_TYPE = " + type).getResultList();
+	}
+	
+	@Override
+	public List<Product> getProductsBySize(String size) {
+		Session s = sessionFactory.getCurrentSession();
+		return s.createQuery("from Product where PRODUCT_TYPE = " + size).getResultList();
+	}
+	*/
+
 	
 }
