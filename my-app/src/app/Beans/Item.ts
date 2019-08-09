@@ -6,4 +6,8 @@ export class Item{
     productDescription:String;
     price:number;
 
+    constructor(){
+        
+    }
+
 }

@@ -38,8 +38,11 @@ export class AppComponent implements OnInit {
         this.router.navigate(['/home']);
     }
     ngOnInit(){
-     
+      
       if(!localStorage.getItem("cartList")){
+
+        console.log("making the cart lol");
+        this.cartList=[];
         localStorage.setItem("cartList",JSON.stringify(this.cartList));
       }
      
