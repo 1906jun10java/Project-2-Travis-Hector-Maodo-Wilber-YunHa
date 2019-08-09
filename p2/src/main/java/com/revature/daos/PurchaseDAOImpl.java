@@ -25,10 +25,9 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 	}
 
 	@Override
-	public void addPurchase(Purchase purchase, Payment payment) {
-		Session s = sessionFactory.getCurrentSession();
-		s.save(purchase);
-		s.save(payment);
+	public void addPurchase(Purchase purchase) {
+		sessionFactory.getCurrentSession().merge(purchase);
+		
 	}
 
 	@Override
