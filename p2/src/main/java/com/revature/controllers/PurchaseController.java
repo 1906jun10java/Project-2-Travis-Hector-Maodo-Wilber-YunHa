@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
+
 import com.revature.beans.*;
 import com.revature.services.*;
 
@@ -36,18 +40,19 @@ public class PurchaseController {
 		return new ResponseEntity<>(purchaseService.getAllPurchases(), HttpStatus.OK);
 	}
 	
-	/*
-	 * @CrossOrigin(origins="http://localhost:4200")
-	 * 
-	 * @RequestMapping(value="/addPurchase", method=RequestMethod.POST) public
-	 * ResponseEntity<String> addPurchase(@RequestBody Parsing purchase) {
-	 * ResponseEntity<String> resp = null;
-	 * 
-	 * try { purchaseService.addPurchase(purchase); resp = new
-	 * ResponseEntity<>("PURCHASE CREATED SUCCESSFULLY", HttpStatus.OK); } catch
-	 * (Exception e) { resp = new ResponseEntity<>("FAILED TO CREATE PURCHASE",
-	 * HttpStatus.BAD_REQUEST); } return resp; }
-	 */
+	@CrossOrigin(origins="http://localhost:4200")
+	@RequestMapping(value="/addPurchase", method=RequestMethod.POST)
+	public ResponseEntity<String> addPurchase(@RequestBody Purchase purchase) {
+		ResponseEntity<String> resp = null;
+		
+		try {
+			purchaseService.addPurchase(purchase);
+			resp = new ResponseEntity<>("PURCHASE CREATED SUCCESSFULLY", HttpStatus.OK);
+		} catch (Exception e) {
+			resp = new ResponseEntity<>("FAILED TO CREATE PURCHASE", HttpStatus.BAD_REQUEST);
+		}
+		return resp;
+	}
 	
 	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/getPurchaseById/{purchaseId}", method=RequestMethod.GET)
@@ -70,4 +75,19 @@ public class PurchaseController {
 			return new ResponseEntity<>(p, HttpStatus.OK);
 		}
 	}
+	
+	@CrossOrigin(origins="http://localhost:4200")
+	@RequestMapping(value="/complete", method=RequestMethod.POST)
+	public ResponseEntity<String> completePurchase(@RequestBody List<Object> cartItems) {
+		ResponseEntity<String> resp = null;
+		
+		try {
+			purchaseService.completePurchase(cartItems);
+			resp = new ResponseEntity<>("PURCHASE COMPLETED SUCCESSFULLY", HttpStatus.OK);
+		} catch (Exception e) {
+			resp = new ResponseEntity<>("FAILED TO COMPLETE PURCHASE", HttpStatus.BAD_REQUEST);
+		}
+		return resp;
+	}
+	
 }
