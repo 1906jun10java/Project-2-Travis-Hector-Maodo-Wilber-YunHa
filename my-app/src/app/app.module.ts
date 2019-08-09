@@ -57,9 +57,7 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
     HttpClientModule,
     StorageServiceModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, 
-    useClass: ErrorInterceptor, multi: true },
-    fakeBackendProvider
+  providers: [
   ],
   bootstrap: [AppComponent]
 })

@@ -40,6 +40,7 @@ private LoginService loginService;
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public User getCredentials(@RequestBody Credentials credentials) {
+		System.out.println(credentials);
 		return loginService.loginVerification(credentials);
 	}
 }

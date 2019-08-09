@@ -27,7 +27,7 @@ export class HomePageComponent implements OnInit {
     });
 }
 
-coolNum:number=Math.floor((Math.random() * 5) + 1);
+coolNum:number=Math.floor((Math.random() * 6) + 1);
 memeNum:number=Math.floor((Math.random() * 4) + 1)
 
 

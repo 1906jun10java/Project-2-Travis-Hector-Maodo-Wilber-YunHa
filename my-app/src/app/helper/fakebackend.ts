@@ -6,8 +6,10 @@ import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 // array in local storage for registered users
 let users = JSON.parse(localStorage.getItem('users')) || [];
 
+
 @Injectable()
-export class FakeBackendInterceptor implements HttpInterceptor {
+export class FakeBackendInterceptor  {
+    /*
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const { url, method, headers, body } = request;
 
@@ -102,4 +104,5 @@ export const fakeBackendProvider = {
     provide: HTTP_INTERCEPTORS,
     useClass: FakeBackendInterceptor,
     multi: true
+    */
 };

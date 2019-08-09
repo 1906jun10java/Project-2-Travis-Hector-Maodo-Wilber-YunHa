@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ItemService } from 'src/app/Servises/itemServices/item.service';
 import { Item } from 'src/app/Beans/Item';
+import { CartServiceService } from 'src/app/Servises/CartService/cart-service.service';
 
 @Component({
   selector: 'app-item-detail',
@@ -11,13 +12,14 @@ import { Item } from 'src/app/Beans/Item';
 export class ItemDetailComponent implements OnInit {
 
   public href: String = "";
-  constructor(private router: Router,private itemService:ItemService) { }
+  constructor(private router: Router,private itemService:ItemService,private cartService : CartServiceService) { }
   currentItem:Item;
-
+  
   
 
   addToCart(){
-    console.log("Works");
+    let split=this.href.split("/item/",2);
+    this.cartService.addToList(this.currentItem);
   }
   
   ngOnInit() {

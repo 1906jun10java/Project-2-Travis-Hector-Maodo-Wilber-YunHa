@@ -21,6 +21,7 @@ public class LoginService {
 	}
 	
 	public User loginVerification(Credentials credential) {
+		System.out.println(credential);
 		List<User> uList = new ArrayList<>(); 
 		uList = loginDAO.getAllUsers();
 		for(User user : uList ) {
