@@ -71,31 +71,30 @@ public class ProductDAOImpl implements ProductDAO {
 		return s.createQuery("from Product").getResultList();
 	}
 	
-	/*
 	@Override
 	public List<Product> getProductsByColor(String color) {
 		Session s = sessionFactory.getCurrentSession();
-		return s.createQuery("from Product where PRODUCT_COLOR = " + color).getResultList();
+		return s.createQuery("from Product where color = '" + color +"'").getResultList();
 	}
 	
 	@Override
 	public List<Product> getProductsByGender(String gender) {
 		Session s = sessionFactory.getCurrentSession();
-		return s.createQuery("from Product where PRODUCT_GENDER = " + gender).getResultList();
+		return s.createQuery("from Product where gender = '" + gender+ "'").getResultList();
 	}
 	
 	@Override
 	public List<Product> getProductsByType(String type) {
 		Session s = sessionFactory.getCurrentSession();
-		return s.createQuery("from Product where PRODUCT_TYPE = " + type).getResultList();
+		return s.createQuery("from Product where productType = '" + type + "'").getResultList();
 	}
 	
 	@Override
 	public List<Product> getProductsBySize(String size) {
 		Session s = sessionFactory.getCurrentSession();
-		return s.createQuery("from Product where PRODUCT_TYPE = " + size).getResultList();
+		return s.createQuery("from Product where size = '" + size + "'").getResultList();
 	}
-	*/
+
 
 	
 }
