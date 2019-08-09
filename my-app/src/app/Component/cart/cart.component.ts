@@ -42,7 +42,7 @@ export class CartComponent implements OnInit {
      this.isNotEmpty=true;
    }
   for(let i:number=0;i<this.cartList.length;i++){
-    this.grandTotal=this.grandTotal+this.cartList[i].price;
+    this.grandTotal=this.grandTotal+(this.cartList[i].price)*(this.cartList[i].quantityInCart);
   }
 
 

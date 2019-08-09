@@ -11,6 +11,7 @@ import{UserPageComponent} from 'src/app/Component/user-page/user-page.component'
 import{BillingInfoComponent} from'src/app/Component/billing-info/billing-info.component'
 import{ShippingInfoComponent} from'src/app/Component/shipping-info/shipping-info.component'
 import { ItemDetailComponent } from 'src/app/Component/item-detail/item-detail.component';
+import { CheckoutComponent } from 'src/app/Component/checkout/checkout.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
   {  path: 'UserPage', component: UserPageComponent },
   {  path: 'Billing', component: BillingInfoComponent },
   {  path: 'Shipping', component: ShippingInfoComponent },
-  {  path: 'item/:id', component: ItemDetailComponent }
+  {  path: 'item/:id', component: ItemDetailComponent },
+  {  path: 'checkout', component: CheckoutComponent }
 
 ];
 
