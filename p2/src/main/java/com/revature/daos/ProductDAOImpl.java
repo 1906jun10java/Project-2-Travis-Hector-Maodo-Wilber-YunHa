@@ -1,7 +1,5 @@
 package com.revature.daos;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -59,9 +57,8 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	@Override
-	public List<Product> getRandomizedProducts() {
-		Session s = sessionFactory.getCurrentSession();
-		return s.createQuery("from Product").getResultList();
+	public Product getProductCritiria(String color, String size, String type, String gender) {
+		
 	}
 	
 }
