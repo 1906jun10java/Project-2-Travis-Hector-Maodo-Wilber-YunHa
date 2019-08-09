@@ -78,4 +78,10 @@ public class ProductController {
 		}
 	}
 	
+	@CrossOrigin(origins="http://localhost:4200")
+	@RequestMapping(value="/random", method=RequestMethod.GET)
+	public ResponseEntity<List<Product>> getRandomizedProducts() {
+		return new ResponseEntity<>(productService.getRandomizedProducts(), HttpStatus.OK);
+	}
+	
 }
