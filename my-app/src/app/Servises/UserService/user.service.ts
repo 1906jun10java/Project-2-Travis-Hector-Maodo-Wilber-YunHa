@@ -9,7 +9,7 @@ import { User } from 'src/app/Beans/User';
 })
 export class UserService {
 
-  private userUrl='localhost:8080/User';
+  private userUrl='http://localhost:8082/User';
 
 
 
@@ -19,8 +19,8 @@ getAll() {
 }
 
 register(user: User):Observable<any> {
-
-    return this.http.post("http://localhost:8082/signUp", user)
+    console.log(user);
+    return this.http.post("http://localhost:8082/p2/login/signUp", user)
     .pipe(
       catchError(this.handleError<any>('getTopItems', ))
     )
