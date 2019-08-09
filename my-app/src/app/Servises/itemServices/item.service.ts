@@ -29,6 +29,13 @@ export class ItemService {
       catchError(this.handleError<Item>('getTopItems', ))
     );
   }
+
+  getItemByList(type:string,gender:string,size:string,color:string):Observable<Item[]>{
+    return this.http.get<Item[]>(`${this.itemUrl}/${type}/${gender}/${size}/${color}`)  
+    .pipe(
+      catchError(this.handleError<Item[]>('getTopItems',[] ))
+    );
+  }
 /*
   getEmployees():Observable<Employee[]>{
     return this.http.get<Employee[]>(this.employeeUrl)

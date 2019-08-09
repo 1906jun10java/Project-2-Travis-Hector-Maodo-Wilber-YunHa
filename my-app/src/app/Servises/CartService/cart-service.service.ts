@@ -34,6 +34,14 @@ export class CartServiceService {
     return this.cartList;
   }
 
+  clearList():Item[]{
+    this.cartList=JSON.parse(localStorage.getItem("cartList"));
+    this.cartList.splice(0,this.cartList.length);
+    localStorage.setItem("cartList",JSON.stringify(this.cartList));
+    return this.cartList;
+
+  }
+
   getElementsInCartList():number{
     this.cartList=JSON.parse(localStorage.getItem("cartList"));
     return this.cartList.length;
