@@ -16,13 +16,28 @@ export class ApparelComponent implements OnInit {
   types:String[];
   sizes:String[];
   items:Item[];
-  currentColor:String='*';
-  currentType:String='*';
-  currentSize:String='*';
+  currentColor:String='';
+  currentType:String='';
+  currentSize:String='';
   currentGender:String='unisex';
 
-  change(){
-    this.apparelServiceService.getItems(this.currentColor,this.currentGender,this.currentType,this.currentSize)
+  changeColor(){
+    this.apparelServiceService.getItemsColor()
+    .subscribe(items=>this.items=items);
+  }
+
+  changeGender(){
+    this.apparelServiceService.getItemsGender()
+    .subscribe(items=>this.items=items);
+  }
+
+  changeSize(){
+    this.apparelServiceService.getItemsSize()
+    .subscribe(items=>this.items=items);
+  }
+
+  changeType(){
+    this.apparelServiceService.getItemsType()
     .subscribe(items=>this.items=items);
   }
 

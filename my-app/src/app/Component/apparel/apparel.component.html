@@ -4,25 +4,25 @@
 
 
 <div>
-        <select (change)="change()" [(ngModel)]="currentColor" class="form-control">
+        <select (change)="changeColor()" [(ngModel)]="currentColor" class="form-control">
             
-            <option value="*">All Colors</option>
+                        <option value="">Color</option>
             <option *ngFor="let color of colors" value="{{color}}" >{{color}}</option>
         </select>
-        
-            <select (change)="change()" [(ngModel)]="currentSize" class="form-control">
+
+            <select (change)="changeSize()" [(ngModel)]="currentSize" class="form-control">
                    
-                    <option value="*">All Sizes</option>
+                        <option value="">Size</option>
                     <option *ngFor="let size of sizes" value="{{size}}" >{{size}}</option>
             </select> 
 
-            <select (change)="change()" [(ngModel)]="currentType" class="form-control">
+            <select (change)="changeType()" [(ngModel)]="currentType" class="form-control">
                    
-                    <option value="*">All Types</option>
+                        <option value="">Type</option>
                     <option *ngFor="let type of types" value="{{type}}" >{{type}}</option>
             </select>
 
-             <select (change)="change()" [(ngModel)]="currentGender" class="form-control">
+             <select (change)="changeGender()" [(ngModel)]="currentGender" class="form-control">
                     <option Value="unisex">Unisex</option>
                     <option value="men">Men</option>
                     <option Value="women">Women</option>

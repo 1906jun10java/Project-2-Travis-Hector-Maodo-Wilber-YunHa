@@ -21,8 +21,23 @@ export class ApparelServiceService {
     return this.http.get(this.baseURL+"/Types")
   }
 
-  getItems(color:String,gender:String,type:String,size:String):Observable<Item[]>{
-    return this.http.get<Item[]>(`${this.baseURL}/${color}/${gender}/${type}/${size}`)
+  getItemsColor(color:String):Observable<Item[]>{
+    return this.http.get<Item[]>(`${this.baseURL}/getColor/${color}`)
+      
+  }
+
+  getItemsGender(gender:String):Observable<Item[]>{
+    return this.http.get<Item[]>(`${this.baseURL}/getGender/${gender}`)
+      
+  }
+
+  getItemsTypes(type:String):Observable<Item[]>{
+    return this.http.get<Item[]>(`${this.baseURL}/getType/${type}`)
+      
+  }
+
+  getItemsSize(size:String):Observable<Item[]>{
+    return this.http.get<Item[]>(`${this.baseURL}/getSize/${size}`)
       
   }
 }
