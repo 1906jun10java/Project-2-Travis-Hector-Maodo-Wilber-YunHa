@@ -1,0 +1,11 @@
+nav {
+    text-align: center;
+    font-size: 25px;
+    background-color: lightblue;
+}
+select{
+    
+    display: inline-block;
+    width:20%;
+    
+}

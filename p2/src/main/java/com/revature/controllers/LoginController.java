@@ -40,13 +40,20 @@ private LoginService loginService;
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public User getCredentials(@RequestBody Credentials credentials) {
+
 		return loginService.loginVerification(credentials);
 	}
 	
 	@CrossOrigin(value="/signUp", origins="http://localhost:4200")
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	public boolean addUser(@RequestBody User user) {
+	public boolean addUser(@RequestBody Parsing user) {
 		return loginService.signUp(user);
 	}
 }
+
+		System.out.println(credentials);
+		return loginService.loginVerification(credentials);
+	}
+}
+

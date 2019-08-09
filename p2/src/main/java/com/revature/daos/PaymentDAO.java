@@ -2,9 +2,17 @@ package com.revature.daos;
 
 import java.util.List;
 
-import com.revature.beans.Payment;;
+import com.revature.beans.*;
 
 public interface PaymentDAO {
-	public List<Payment> getAllPayments();
+
 	public void addPayment(Payment payment);
+	
+	public void updatePayment(Payment payment);
+	
+	public void deletePayment(Payment payment);
+	
+	public Payment getPaymentById(int paymentId);
+	
+	public List<Payment> getPaymentsForUser(int userId);
 }

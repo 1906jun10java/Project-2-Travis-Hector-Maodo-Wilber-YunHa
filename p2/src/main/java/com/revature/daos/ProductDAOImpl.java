@@ -50,5 +50,10 @@ public class ProductDAOImpl implements ProductDAO {
 		Session s = sessionFactory.getCurrentSession();
 		return s.createQuery("select distinct productType from Product").getResultList();
 	}
+
+	@Override
+	public Product getProductById(int productId) {
+		return sessionFactory.getCurrentSession().get(Product.class, productId);
+	}
 	
 }

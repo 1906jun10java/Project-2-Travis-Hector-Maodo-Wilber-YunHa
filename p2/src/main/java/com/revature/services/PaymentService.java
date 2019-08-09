@@ -18,11 +18,23 @@ public class PaymentService {
 		this.paymentDAO = paymentDAO;
 	}
 	
-	public List<Payment> getAllPayments() {
-		return this.paymentDAO.getAllPayments();
+	public void addPayment(Payment payment) {
+		this.paymentDAO.addPayment(payment);
 	}
 	
-	public void createPayment(Payment payment) {
-		this.paymentDAO.addPayment(payment);
+	public void updatePayment(Payment payment) {
+		this.paymentDAO.updatePayment(payment);
+	}
+	
+	public void deletePayment(Payment payment) {
+		this.paymentDAO.deletePayment(payment);
+	}
+	
+	public Payment getPaymentById(int paymentId) {
+		return this.paymentDAO.getPaymentById(paymentId);
+	}
+	
+	public List<Payment> getPaymentsForUser(int userId) {
+		return this.paymentDAO.getPaymentsForUser(userId);
 	}
 }

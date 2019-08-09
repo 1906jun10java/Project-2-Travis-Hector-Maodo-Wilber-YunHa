@@ -37,4 +37,8 @@ public class ProductService {
 	public List<Product> getProductTypes() {
 		return this.productDAO.getProductTypes();
 	}
+	
+	public Product getProductById(int productId) {
+		return this.productDAO.getProductById(productId);
+	}
 }

@@ -21,6 +21,9 @@ public class LoginService {
 	}
 	
 	public User loginVerification(Credentials credential) {
+
+	System.out.println(credential);
+
 		List<User> uList = new ArrayList<>(); 
 		uList = loginDAO.getAllUsers();
 		for(User user : uList ) {
@@ -36,6 +39,7 @@ public class LoginService {
 		return null;
 	}
 	
+
 	public boolean signUp(User user) {
 		System.out.println(user);
 		User tempUser = new User();
@@ -65,3 +69,9 @@ public class LoginService {
 		return this.loginDAO.getAllUsers();
 	}
 }
+
+	public List<User> getAllUsers() {
+		return this.loginDAO.getAllUsers();
+	}
+}
+
