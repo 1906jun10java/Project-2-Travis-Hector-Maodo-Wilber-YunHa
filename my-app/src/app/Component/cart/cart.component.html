@@ -1,1 +1,30 @@
-<p>cart works!</p>
+<h3>
+    Your Cart!!!!!!!!!!!!
+</h3>
+
+<div>
+     <ul><!--Will need to change this back to items when im done testing the thing-->
+        <li *ngFor="let item of cartList" >
+            <a routerLink="/item/{{item.productId}}"> <div>
+                <p>
+                    Details: {{item.productDescription}}  Price: ${{item.price}} 
+                </p>
+            </div> </a>
+            <button (click)="remove(item.productId)">Remove From Cart</button>
+
+        </li>
+    </ul>
+
+</div>
+
+<div *ngIf="isNotEmpty">
+    <p>
+        Total: ${{grandTotal}}
+    </p>
+
+        <button >
+            Purchase
+        </button>
+
+</div>
+
