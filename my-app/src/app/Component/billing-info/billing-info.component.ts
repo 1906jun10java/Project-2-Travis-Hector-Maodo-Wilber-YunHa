@@ -65,7 +65,9 @@ export class BillingInfoComponent implements OnInit {
     else{
       this.newBillingInfo=this.billingForm.value;
       this.newBillingInfo.user=this.currentUser;
+      if(this.billingInfo[0] !==undefined){
       this.newBillingInfo.paymentId=this.billingInfo[0].paymentId;
+      }
       this.newBillingInfo.cardType=null;
       console.log(this.newBillingInfo);
       
@@ -80,6 +82,9 @@ export class BillingInfoComponent implements OnInit {
       }
   
     }
+    this.billingInfoService.getCurrentUserBilling(this.currentUser.userId)
+   .subscribe(billing => this.billingInfo=billing);
+
   }
 
   ngOnDestroy() {
