@@ -22,22 +22,22 @@ export class ApparelComponent implements OnInit {
   currentGender:String='unisex';
 
   changeColor(){
-    this.apparelServiceService.getItemsColor()
+    this.apparelServiceService.getItemsColor(this.currentColor)
     .subscribe(items=>this.items=items);
   }
 
   changeGender(){
-    this.apparelServiceService.getItemsGender()
+    this.apparelServiceService.getItemsGender(this.currentGender)
     .subscribe(items=>this.items=items);
   }
 
   changeSize(){
-    this.apparelServiceService.getItemsSize()
+    this.apparelServiceService.getItemsSize(this.currentSize)
     .subscribe(items=>this.items=items);
   }
 
   changeType(){
-    this.apparelServiceService.getItemsType()
+    this.apparelServiceService.getItemsTypes(this.currentType)
     .subscribe(items=>this.items=items);
   }
 
@@ -52,8 +52,8 @@ export class ApparelComponent implements OnInit {
     this.apparelServiceService.getTypeList()
     .subscribe(items => this.types=items);
 
+    this.changeGender();
 
-    this.apparelServiceService.getItems(this.currentColor,this.currentGender,this.currentType,this.currentSize)
-    .subscribe(items=>this.items=items);
+    
 }
 }
