@@ -25,8 +25,8 @@ export class BillingInfoComponent implements OnInit {
   billingInfo:Billing;
 
   billingForm=this.fb.group({
-    cardNumber:['', Validators.required],
-    securityCode:['',[Validators.required,Validators.maxLength(5),Validators.minLength(5)]],
+    cardNumber:['',[ Validators.required,Validators.maxLength(16),Validators.minLength(16)]],
+    securityCode:['',[Validators.required,Validators.maxLength(3),Validators.minLength(3)]],
     nameOnCard:['', Validators.required],
     expirationDate:['', Validators.required]
   })

@@ -68,7 +68,7 @@ onSubmit() {
     this.newUserAddress.addressId=this.addressInfo[0].addressId;
     console.log(this.newUserAddress);
     this.shippingInfoService.putCurrentUserShipping(this.newUserAddress)
-    .subscribe(valid =>this.valid=valid);
+    .subscribe(valid =>this.valid=valid); 
     
    
 

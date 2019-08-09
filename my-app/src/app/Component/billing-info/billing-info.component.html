@@ -4,7 +4,8 @@
     Note that card number and securety number are not shown
 </h4>
 
-<form [formGroup]="billingForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="billingForm" >
+  
     <div class="form-group">
         <label for="cardNumber">Card Number</label>
         <input formControlName="cardNumber" type="number" required minlength="16" 
@@ -26,7 +27,7 @@
       
       <div class="form-group">
         <label for="CardName">Name On Card</label>
-        <input formControlName="nameOnCard" placeholder="{{billingInfo.nameOnCard}}" type="text"[ngClass]="{ 'is-invalid': submitted && f.nameOnCard.errors }" />
+        <input formControlName="nameOnCard" placeholder="{{billingInfo[0].nameOnCard}}" type="text"[ngClass]="{ 'is-invalid': submitted && f.nameOnCard.errors }" />
         <div *ngIf="submitted && f.nameOnCard.errors" class="invalid-feedback">
             <div *ngIf="f.nameOnCard.errors.required">Name on Card is required</div>
         </div>
@@ -34,7 +35,7 @@
       
       <div class="form-group">
         <label for="Expiration ">Card Expiration </label>
-        <input formControlName="expirationDate" placeholder="{{billingInfo.exp}}" type="month" [ngClass]="{ 'is-invalid': submitted && f.expirationDate.errors }" />
+        <input formControlName="expirationDate" placeholder="{{billingInfo[0].expirationDate}}" type="month" [ngClass]="{ 'is-invalid': submitted && f.expirationDate.errors }" />
         <div *ngIf="submitted && f.expirationDate.errors" class="invalid-feedback">
             <div *ngIf="f.expirationDate.errors.required">Card Expiration is required</div>
         </div>

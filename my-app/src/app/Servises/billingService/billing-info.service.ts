@@ -9,7 +9,7 @@ import { Billing } from 'src/app/Beans/Billing';
   providedIn: 'root'
 })
 export class BillingInfoService {
-  baseUrl:string="http://localhost:8082/payment"
+  baseUrl:string="http://localhost:8082/p2/payment"
   constructor(private http: HttpClient) { }
 
 
@@ -18,7 +18,13 @@ export class BillingInfoService {
   }
 
   putCurrentUserBilling(billing:Billing):Observable<any>{
-    return this.http.put<any>(this.baseUrl,billing)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+        
+      })
+    };
+    return this.http.put<any>(this.baseUrl+"/addOrUpdate",billing,httpOptions)
   }
   
 }
