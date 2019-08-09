@@ -1,8 +1,11 @@
+import { User } from './User';
+
 export class Billing{
-    id:number
+    paymentId:number
     userID:number
-    exp:Date;
+    user:User;
+    expirationDate:Date;
     nameOnCard:string;
-    cardNum:number;
-    securetyNum:number;
+    cardNumber:number;
+    securityCode:number;
 }
