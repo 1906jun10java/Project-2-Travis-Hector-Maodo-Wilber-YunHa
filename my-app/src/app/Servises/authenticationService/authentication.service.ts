@@ -50,6 +50,7 @@ export class AuthenticationService {
                     localStorage.setItem('currentUser', JSON.stringify(user));
                     this.currentUserSubject.next(user);
                     localStorage.removeItem('cartList');
+                    localStorage.setItem("cartList",JSON.stringify([]));
                 }
 
                 return user;
@@ -60,6 +61,7 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
         localStorage.removeItem('cartList');
+        localStorage.setItem("cartList",JSON.stringify([]));
         this.currentUserSubject.next(null);
     }
 }

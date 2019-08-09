@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
     }
     ngOnInit(){
      
-      if(!localStorage.getItem("cartList")){
+      if(localStorage.getItem("cartList")===null){
         this.cartList=[];
         localStorage.setItem("cartList",JSON.stringify(this.cartList));
       }
