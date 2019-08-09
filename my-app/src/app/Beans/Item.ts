@@ -5,5 +5,6 @@ export class Item{
     productType:string;
     productDescription:String;
     price:number;
+    quantityInCart:number;
 
 }

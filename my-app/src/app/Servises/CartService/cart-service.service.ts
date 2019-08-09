@@ -18,9 +18,29 @@ export class CartServiceService {
 
   addToList(item:Item):Item[]{
     this.cartList=JSON.parse(localStorage.getItem("cartList"));
-    this.cartList.push(item);
+    console.log(this.cartList);
+    item.quantityInCart=1;
+
+    if(this.cartList.length===0){
+      this.cartList.push(item);
+    }
+    else{
+      for(let i=0;i<this.cartList.length;i++){
+        console.log(item.productId);
+        console.log(this.cartList[i].productId);
+        let counted=false;
+        if(item.productId===this.cartList[i].productId){
+          item.quantityInCart=this.cartList[i].quantityInCart+1;
+          this.cartList[i]=item;
+          counted=true;
+          break;
+        }
+        else if(counted===false && i===this.cartList.length-1 ){
+          this.cartList.push(item);
+        }
+      }
+    }
     localStorage.setItem("cartList",JSON.stringify(this.cartList));
-    alert("Added "+item.productName+" to your cart");
     return this.cartList;
   }
 

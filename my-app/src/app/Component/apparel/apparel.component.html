@@ -3,7 +3,7 @@
 
 
 
-
+<div>
         <select (change)="change()" [(ngModel)]="currentColor" class="form-control">
             
             <option value="*">All Colors</option>
@@ -28,6 +28,14 @@
                     <option Value="women">Women</option>
                     
             </select>
+</div>
+
+<div>
+      <div *ngFor="let item of items" >
+        <p>{{item.productName}}</p><a routerLink="/item/{{item.productId}}"><img class = "material" src="{{item.meme.memeImg}}" width = "10%" height="10%"></a>
+       </div>
+</div>
+        
 
     
 
@@ -36,4 +44,4 @@
  
   
 
-<app-item-list></app-item-list>
+

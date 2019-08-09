@@ -7,7 +7,7 @@
         <li *ngFor="let item of cartList" >
             <a routerLink="/item/{{item.productId}}"> <div>
                 <p>
-                    Details: {{item.productDescription}}  Price: ${{item.price}} 
+                    Details: {{item.productDescription}}  Price: ${{item.price}} Quantity: {{item.quantityInCart}}
                 </p>
             </div> </a>
             <button (click)="remove(item.productId)">Remove From Cart</button>
@@ -21,10 +21,13 @@
     <p>
         Total: ${{grandTotal}}
     </p>
-
+    <a routerLink="/checkout">
         <button >
             Purchase
         </button>
+    </a>
+
+     
 
 </div>
 

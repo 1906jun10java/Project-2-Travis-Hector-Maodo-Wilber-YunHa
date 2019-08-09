@@ -51,12 +51,15 @@ public class Product {
 	@Column(name="NUMBER_SOLD")
 	private int numberSold;
 	
+	@Column(name="QUANTITY_IN_CART")
+	private int quantityInCart;
+	
 	public Product() {
 		super();
 	}
 
 	public Product(int productId, Meme meme, String productName, String productDescription, String productType,
-			String color, String gender, String size, double price, int quantity, int numberSold) {
+			String color, String gender, String size, double price, int quantity, int numberSold, int quantityInCart) {
 		super();
 		this.productId = productId;
 		this.meme = meme;
@@ -69,10 +72,11 @@ public class Product {
 		this.price = price;
 		this.quantity = quantity;
 		this.numberSold = numberSold;
+		this.quantityInCart = quantityInCart;
 	}
 
 	public Product(Meme meme, String productName, String productDescription, String productType,
-			String color, String gender, String size, double price, int quantity, int numberSold) {
+			String color, String gender, String size, double price, int quantity, int numberSold, int quantityInCart) {
 		super();
 		this.meme = meme;
 		this.productName = productName;
@@ -84,10 +88,11 @@ public class Product {
 		this.price = price;
 		this.quantity = quantity;
 		this.numberSold = numberSold;
+		this.quantityInCart = quantityInCart;
 	}
 	
 	public Product(Meme meme, String productName, String productDescription, String productType,
-			String color, String gender, String size, double price, int quantity) {
+			String color, String gender, String size, double price, int quantity, int quantityInCart) {
 		super();
 		this.meme = meme;
 		this.productName = productName;
@@ -98,10 +103,11 @@ public class Product {
 		this.size = size;
 		this.price = price;
 		this.quantity = quantity;
+		this.quantityInCart = quantityInCart;
 	}
 	
 	public Product(Meme meme, String productName, String productDescription, String productType,
-			double price, int quantity) {
+			double price, int quantity, int quantityInCart) {
 		super();
 		this.meme = meme;
 		this.productName = productName;
@@ -109,6 +115,7 @@ public class Product {
 		this.productType = productType;
 		this.price = price;
 		this.quantity = quantity;
+		this.quantityInCart = quantityInCart;
 	}
 	
 	public Product(Meme meme, String productName, String productDescription, String productType,
@@ -120,7 +127,6 @@ public class Product {
 		this.productType = productType;
 		this.price = price;
 	}
-	
 
 	public int getProductId() {
 		return productId;
@@ -210,12 +216,20 @@ public class Product {
 		this.numberSold = numberSold;
 	}
 
+	public int getQuantityInCart() {
+		return quantityInCart;
+	}
+
+	public void setQuantityInCart(int quantityInCart) {
+		this.quantityInCart = quantityInCart;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", meme=" + meme + ", productName=" + productName
 				+ ", productDescription=" + productDescription + ", productType=" + productType + ", color=" + color
 				+ ", gender=" + gender + ", size=" + size + ", price=" + price + ", quantity=" + quantity
-				+ ", numberSold=" + numberSold + "]";
+				+ ", numberSold=" + numberSold + ", quantityInCart=" + quantityInCart + "]";
 	}
-	
+
 }
