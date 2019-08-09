@@ -33,5 +33,9 @@ public class AddressService {
 	public void updateAddress(Address address) {
 		this.addressDAO.updateAddress(address);
 	}
+	
+	public void addOrUpdateAddress(Address address) {
+		this.addressDAO.addOrUpdateAddress(address);
+	}
 
 }
