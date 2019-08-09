@@ -1,24 +1,34 @@
-<form [formGroup]="apparelForm">
-        <select class="form-control">
-            <option value="null" disabled>Color</option>
-            <option *ngFor="let color of colors" value="" ></option>
+
+
+
+
+
+
+        <select (change)="change()" [(ngModel)]="currentColor" class="form-control">
+            
+            <option value="*">All Colors</option>
+            <option *ngFor="let color of colors" value="{{color}}" >{{color}}</option>
         </select>
         
-            <select class="form-control">
-                    <option value="null" disabled>Size</option>
-                    <option *ngFor="let size of sizes" value="" ></option>
+            <select (change)="change()" [(ngModel)]="currentSize" class="form-control">
+                   
+                    <option value="*">All Sizes</option>
+                    <option *ngFor="let size of sizes" value="{{size}}" >{{size}}</option>
             </select> 
 
-            <select class="form-control">
-                    <option value="null" disabled>Type</option>
-                    <option *ngFor="let type of types" value="" ></option>
+            <select (change)="change()" [(ngModel)]="currentType" class="form-control">
+                   
+                    <option value="*">All Types</option>
+                    <option *ngFor="let type of types" value="{{type}}" >{{type}}</option>
             </select>
 
-             <select class="form-control">
-                    <option value="Men">Men</option>
-                    <option Value="Women">Women</option>
+             <select (change)="change()" [(ngModel)]="currentGender" class="form-control">
+                    <option Value="unisex">Unisex</option>
+                    <option value="men">Men</option>
+                    <option Value="women">Women</option>
+                    
             </select>
-</form>
+
     
 
     

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { GeneralNavBarComponent } from './Component/general-nav-bar/general-nav-bar.component';
 import { GeneralFooterComponent } from './Component/general-footer/general-footer.component';
@@ -56,7 +56,8 @@ import { CarouselComponent } from './Component/carousel/carousel.component';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    StorageServiceModule
+    StorageServiceModule,
+    FormsModule
   ],
   providers: [
   ],

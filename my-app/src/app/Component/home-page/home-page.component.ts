@@ -34,6 +34,8 @@ memeNum:number=Math.floor((Math.random() * 4) + 1)
 ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
     this.currentUserSubscription.unsubscribe();
+    
+    
 }
 
   items:Item[];
