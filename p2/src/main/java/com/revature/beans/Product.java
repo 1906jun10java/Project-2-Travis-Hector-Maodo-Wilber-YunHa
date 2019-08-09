@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -54,7 +55,7 @@ public class Product {
 	@Column(name="QUANTITY_IN_CART")
 	private int quantityInCart;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="PURCHASE_ID", referencedColumnName = "PURCHASE_ID")
 	private Purchase purchase;
 	
@@ -136,6 +137,24 @@ public class Product {
 		this.productDescription = productDescription;
 		this.productType = productType;
 		this.price = price;
+	}
+	
+	public Product(String color, String gender, Meme meme, int numberSold, double price, String productDescription, int productId, String productName,  String productType,
+			Purchase purchase, int quantity, int quantityInCart, String size) {
+		super();
+		this.productId = productId;
+		this.meme = meme;
+		this.productName = productName;
+		this.productDescription = productDescription;
+		this.productType = productType;
+		this.color = color;
+		this.gender = gender;
+		this.size = size;
+		this.price = price;
+		this.quantity = quantity;
+		this.numberSold = numberSold;
+		this.quantityInCart = quantityInCart;
+		this.purchase = purchase;
 	}
 
 	public int getProductId() {

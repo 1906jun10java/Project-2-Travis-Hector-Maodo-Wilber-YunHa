@@ -58,6 +58,15 @@ public class User implements Serializable{
 		this.email = email;
 		this.userType = userType;
 	}
+	
+	public User(String email, String firstName, String lastName, int userId, String userType) {
+		super();
+		this.userId = userId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.userType = userType;
+	}
 
 	
 	public int getUserId() {
