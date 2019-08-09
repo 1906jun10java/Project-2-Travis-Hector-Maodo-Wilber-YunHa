@@ -18,11 +18,11 @@ export class BillingInfoComponent implements OnInit {
   currentUser: User;
   currentUserSubscription: Subscription;
 
-  billinInfo:Billing;
+ // billinInfo:Billing;
   newBillingInfo:Billing;
   valid:boolean;
-  
-  billingInfo: Billing = {
+
+  addressInfo:Billing={
     id:22,
     userID: 55,
     cardNum: 30403043043,
@@ -30,7 +30,7 @@ export class BillingInfoComponent implements OnInit {
     nameOnCard: "Joe",
     exp: new Date()
   }
-  
+
   constructor(private authenticationService: AuthenticationService,private router: Router,
     private billingInfoService:BillingInfoService,private fb:FormBuilder) { 
 

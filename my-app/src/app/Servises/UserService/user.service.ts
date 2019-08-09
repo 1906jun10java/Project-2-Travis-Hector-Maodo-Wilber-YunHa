@@ -19,14 +19,8 @@ getAll() {
 }
 
 register(user: User):Observable<any> {
-  const httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json'
-      
-    })
-  };
 
-    return this.http.post("http://localhost:8082/p2/login/signUp", JSON.stringify(user),httpOptions)
+    return this.http.post("http://localhost:8082/signUp", user)
     .pipe(
       catchError(this.handleError<any>('getTopItems', ))
     )

@@ -20,11 +20,11 @@ import { AddressFormComponent } from './Component/address-form/address-form.comp
 import { BillingInfoComponent } from './Component/billing-info/billing-info.component';
 import { ShippingInfoComponent } from './Component/shipping-info/shipping-info.component';
 import { AlertComponent } from './Component/alert/alert.component';
-import { fakeBackendProvider } from './helper/fakebackend';
 import { ErrorInterceptor } from './Servises/authenticationService/error.interceptor';
 import { ItemDetailComponent } from './Component/item-detail/item-detail.component';
 import { ItemListComponent } from './Component/item-list/item-list.component';
 import { StorageServiceModule } from 'ngx-webstorage-service';
+import { CarouselComponent } from './Component/carousel/carousel.component';
 
 
 @NgModule({
@@ -48,6 +48,7 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
     AlertComponent,
     ItemDetailComponent,
     ItemListComponent,
+    CarouselComponent,
    
   ],
   imports: [

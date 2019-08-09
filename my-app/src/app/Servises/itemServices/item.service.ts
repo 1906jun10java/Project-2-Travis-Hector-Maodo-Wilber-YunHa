@@ -24,16 +24,9 @@ export class ItemService {
   }
 
   getItemById(id:string): Observable<Item>{
-    return this.http.get<Item>(this.itemUrl+"/byId")
+    return this.http.get<Item>(`${this.itemUrl}/${id}`)
     .pipe(
       catchError(this.handleError<Item>('getTopItems', ))
-    );
-  }
-
-  getItemByList(type:string,gender:string,size:string,color:string):Observable<Item[]>{
-    return this.http.get<Item[]>(`${this.itemUrl}/${type}/${gender}/${size}/${color}`)  
-    .pipe(
-      catchError(this.handleError<Item[]>('getTopItems',[] ))
     );
   }
 /*

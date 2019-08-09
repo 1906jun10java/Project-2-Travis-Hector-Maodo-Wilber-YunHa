@@ -24,12 +24,14 @@
     <img class = "poggers" src = "https://img.fireden.net/v/image/1558/11/1558111394702.png" width = "20%" margin ="20%">
 </div>
 <br>
-    <p>"Top" Item List</p>
+    <p style = "text-align: center">"Top" Item List</p>
+    <div class = images>
     <ul><!--Will need to change this back to items when im done testing the thing-->
         <li *ngFor="let item of items" >
             <a routerLink="/item/{{item.productId}}"> <img src="{{item.meme.memeImg}}"> </a>
         </li>
     </ul>
+</div>
     <br>
 <div>
     <img src="https://res.cloudinary.com/rotceh/image/upload/Meme/{{memeNum}}" class = "z-depth-5" alt="Meme img" width="100%" height="100%">
