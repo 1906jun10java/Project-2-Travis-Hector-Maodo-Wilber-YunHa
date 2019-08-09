@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import java.io.StringReader;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
 
 import com.revature.beans.*;
 import com.revature.services.*;
@@ -77,5 +82,19 @@ private AddressService addressService;
 		} else {
 			return new ResponseEntity<>(a, HttpStatus.OK);
 		}
+	}
+	
+	@CrossOrigin(origins="http://localhost:4200")
+	@RequestMapping(value="/addOrUpdate", method=RequestMethod.PUT)
+	public ResponseEntity<String> addOrUpdateAddress(@RequestBody Address address) {
+		ResponseEntity<String> resp = null;
+		
+		try {
+			addressService.addOrUpdateAddress(address);
+			resp = new ResponseEntity<>("ADDRESS CREATED OR UPDATED SUCCESSFULLY", HttpStatus.OK);
+		} catch (Exception e) {
+			resp = new ResponseEntity<>("FAILED TO CREATE OR UPDATE ADDRESS", HttpStatus.BAD_REQUEST);
+		}
+		return resp;
 	}
 }
