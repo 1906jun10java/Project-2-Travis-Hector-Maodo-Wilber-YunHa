@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,6 +55,22 @@ public class ProductService {
 		}
 		
 		return someProducts;
+	}
+	
+	public List<Product> getProductsByColor(String color) {
+		return this.productDAO.getProductsByColor(color);
+	}
+
+	public List<Product> getProductsByGender(String gender) {
+		return this.productDAO.getProductsByGender(gender);
+	}
+	
+	public List<Product> getProductsByType(String type) {
+		return this.productDAO.getProductsByType(type);
+	}
+	
+	public List<Product> getProductsBySize(String size) {
+		return this.productDAO.getProductsBySize(size);
 	}
 	
 	
