@@ -27,8 +27,8 @@ export class HomePageComponent implements OnInit {
     });
 }
 
-coolNum:number=Math.floor((Math.random() * 6) + 1);
-memeNum:number=Math.floor((Math.random() * 4) + 1)
+coolNum:number=Math.floor((Math.random() * 25) + 1);
+memeNum:number=Math.floor((Math.random() * 25) + 1)
 
 
 ngOnDestroy() {

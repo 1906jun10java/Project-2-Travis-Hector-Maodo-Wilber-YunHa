@@ -9,7 +9,8 @@ export class ArtComponent implements OnInit {
 
   coolNum:number=Math.floor((Math.random() * 6) + 1);
   memeNum:number=Math.floor((Math.random() * 4) + 1)
-  
+  numbers = Array(25).fill(1).map((x,i)=>i);
+
   constructor() { }
 
   ngOnInit() {

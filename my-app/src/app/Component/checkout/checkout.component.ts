@@ -36,6 +36,9 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
+  coolNum:number=Math.floor((Math.random() * 25) + 1);
+  memeNum:number=Math.floor((Math.random() * 25) + 1);
+
   isNotEmpty:boolean;
 
   grandTotal:number=0;
