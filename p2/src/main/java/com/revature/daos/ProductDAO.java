@@ -11,4 +11,5 @@ public interface ProductDAO {
 	public List<Product> getProductSizes();
 	public List<Product> getProductTypes();
 	public Product getProductById(int productId);
+	public List<Product> getRandomizedProducts();
 }

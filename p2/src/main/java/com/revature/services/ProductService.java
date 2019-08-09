@@ -1,5 +1,7 @@
 package com.revature.services;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,4 +43,18 @@ public class ProductService {
 	public Product getProductById(int productId) {
 		return this.productDAO.getProductById(productId);
 	}
+	
+	public List<Product> getRandomizedProducts() {
+		List<Product> allProducts = productDAO.getRandomizedProducts();
+		Collections.shuffle(allProducts);
+		List<Product> someProducts = new ArrayList<>();
+		
+		for(int i = 0; i < 20; i++) {
+			someProducts.add(allProducts.get(i));
+		}
+		
+		return someProducts;
+	}
+	
+	
 }
