@@ -37,4 +37,8 @@ public class PaymentService {
 	public List<Payment> getPaymentsForUser(int userId) {
 		return this.paymentDAO.getPaymentsForUser(userId);
 	}
+	
+	public void addOrUpdatePayment(Payment payment) {
+		this.paymentDAO.addOrUpdatePayment(payment);
+	}
 }
