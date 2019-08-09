@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApparelServiceService } from 'src/app/Servises/apparelService/apparel-service.service';
+import { Observable } from 'rxjs';
+import { Item } from 'src/app/Beans/Item';
 
 @Component({
   selector: 'app-apparel',
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApparelComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apparelServiceService:ApparelServiceService) { }
 
-  ngOnInit() {
+  colors:String[];
+  types:String[];
+  sizes:String[];
+  items:Item[];
+  currentColor:String='*';
+  currentType:String='*';
+  currentSize:String='*';
+  currentGender:String='unisex';
+
+  change(){
+    
   }
 
+
+  ngOnInit() {
+    this.apparelServiceService.getColorList()
+    .subscribe(items => this.colors=items);
+
+    this.apparelServiceService.getSizeList()
+    .subscribe(items => this.sizes=items);
+
+    this.apparelServiceService.getTypeList()
+    .subscribe(items => this.types=items);
+
+}
 }

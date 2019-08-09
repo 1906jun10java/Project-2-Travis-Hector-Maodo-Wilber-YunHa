@@ -17,7 +17,7 @@ export class ItemService {
   constructor( private http: HttpClient) { }
 
   getTopItems(): Observable<Item[]>{
-    return this.http.get<Item[]>(this.itemUrl+"/allproducts")
+    return this.http.get<Item[]>(this.itemUrl+"/random")
     .pipe(
       catchError(this.handleError<Item[]>('getTopItems', []))
     );

@@ -8,4 +8,6 @@ export class Billing{
     nameOnCard:string;
     cardNumber:number;
     securityCode:number;
+    cardType:string;
+
 }
