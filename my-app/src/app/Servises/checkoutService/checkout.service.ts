@@ -12,8 +12,8 @@ export class CheckoutService {
   constructor(private http: HttpClient) { }
 
   
-  sendOrder(cartList:Item[],p:Purchase):Observable<any>{
-    let obj:object[]=[cartList,p];
+  sendOrder(obj:object[]):Observable<any>{
+    
     console.log(obj);
     const httpOptions = {
       headers: new HttpHeaders({

@@ -1,8 +1,8 @@
 <div *ngIf="currentUser">
     <p>Make Sure to Update Your Shipping and Billing Info before continuing </p>
-    <div *ngIf="billingInfo && addressInfo">
+    <div >
  
-        <button (clcik)="submitOrder()">
+        <button (click)="submitOrderUser()">
             Submit Your Order
         </button>
         

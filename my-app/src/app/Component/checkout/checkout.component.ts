@@ -23,21 +23,29 @@ export class CheckoutComponent implements OnInit {
 
   billingInfo:Billing;
 
-  newBillingInfo:Billing;
+  value=false;
 
   addressInfo:Address;
 
-  newUserAddress:Address;
+  valueCheck(){
+    if(this.billingInfo[0]===undefined || this.addressInfo[0]===undefined){
+      this.value=false
+    }
+    else{
+      this.value=true;
+    }
+  }
 
   isNotEmpty:boolean;
 
-  grandTotal:number;
+  grandTotal:number=0;
 
   constructor(private checkoutService:CheckoutService,private cartService:CartServiceService,
     private authenticationService:AuthenticationService,private shippingInfoService:ShippingInfoService,
     private billingInfoService:BillingInfoService) {
       this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
         this.currentUser = user;
+        console.log(this.currentUser);
     });
      }
 
@@ -54,34 +62,35 @@ export class CheckoutComponent implements OnInit {
 
    this.cartList= this.cartService.seeItemList();
 
-   if(this.cartList.length===0){
-     this.isNotEmpty=false;
-   }
-   else{
-     this.isNotEmpty=true;
-   }
-  for(let i:number=0;i<this.cartList.length;i++){
+  
+
+   
+   for(let i:number=0;i<this.cartList.length;i++){
     this.grandTotal=this.grandTotal+(this.cartList[i].price)*(this.cartList[i].quantityInCart);
+    console.log(this.grandTotal);
   }
+    
+  }
+  
 
 
-  }
+  
+
+  currentDate= new Date();
+  totalNum:Number;
+  
 
   submitOrderUser(){
-    let currentDate= new Date();
-    let purchase:Purchase={
-      user:this.currentUser,
-      total:this.grandTotal,
-      billing:this.billingInfo,
-      address:this.addressInfo,
-      date:currentDate,
-      email:"",
-      usersName:"",
-      status:''
-    }
 
-    this.checkoutService.sendOrder(this.cartList,purchase);
-    
+    this.valueCheck();
+    if(this.value){
+      this.totalNum=this.grandTotal;
+     let obj:object[]=[this.currentUser,this.totalNum,this.billingInfo[0],this.addressInfo[0],this.currentDate,this.cartList]
+    this.checkoutService.sendOrder(obj);
+    }
+   else{
+     alert("Update your info to procede")
+   }
   }
 
   ngOnDestroy() {
