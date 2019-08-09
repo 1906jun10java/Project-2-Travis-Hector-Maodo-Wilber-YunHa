@@ -13,7 +13,6 @@ import{ShippingInfoComponent} from'src/app/Component/shipping-info/shipping-info
 import { ItemDetailComponent } from 'src/app/Component/item-detail/item-detail.component';
 import { CheckoutComponent } from 'src/app/Component/checkout/checkout.component';
 
-
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {  path: 'home', component: HomePageComponent },
@@ -27,7 +26,7 @@ const routes: Routes = [
   {  path: 'Billing', component: BillingInfoComponent },
   {  path: 'Shipping', component: ShippingInfoComponent },
   {  path: 'item/:id', component: ItemDetailComponent },
-  {  path: 'checkout', component: CheckoutComponent }
+  {  path: 'checkout', component: CheckoutComponent },
 
 ];
 

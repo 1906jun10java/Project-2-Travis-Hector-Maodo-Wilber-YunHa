@@ -27,7 +27,7 @@ export class BillingInfoComponent implements OnInit {
   dateString:string;
   
   billingForm=this.fb.group({
-    cardNumber:['',[ Validators.required,Validators.maxLength(16),Validators.minLength(16)]],
+    cardNumber:['', [Validators.required,Validators.maxLength(3),Validators.minLength(3)]],
     securityCode:['',[Validators.required,Validators.maxLength(3),Validators.minLength(3)]],
     nameOnCard:['', Validators.required],
     expirationDate:['', Validators.required]
@@ -68,13 +68,14 @@ export class BillingInfoComponent implements OnInit {
       if(this.billingInfo[0] !==undefined){
       this.newBillingInfo.paymentId=this.billingInfo[0].paymentId;
       }
-      this.newBillingInfo.cardType=null;
+      this.newBillingInfo.cardType = null;
       console.log(this.newBillingInfo);
       
       this.billingInfoService.putCurrentUserBilling(this.newBillingInfo)
-      .subscribe(valid =>this.valid=valid);
+      .subscribe(valid =>this.valid=valid); 
       
-      if(this.valid===true){
+
+      if(this.valid === true){
         alert("Billing Info Updated");
       }
       else{

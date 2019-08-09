@@ -7,15 +7,14 @@
 <form [formGroup]="shippingForm"  >
         <div class="form-group">
                 <label for="Address">Address</label>
-                <input  formControlName="addressLine1"  value="{{addressInfo[0].addressLine1}}" class="form-control" required />
-
+                <input  formControlName="addressLine1" placeholder="{{addressInfo[0].addressLine1}}" class="form-control" required />
+                        <!-- -->
         </div>
 
         <div class="form-group">
                 <label for="Zip">Zip Code</label>
-                <input type="number" formControlName="zipCode" value="{{addressInfo[0].zipCode}}" class="form-control" required minlength="5" 
-                maxlength="5" />
-
+                <input type="number" formControlName="zipCode"  class="form-control" placeholder="{{addressInfo[0].zipCode}}" required pattern=".{5,5}" />
+                        <!---->
         </div>
         <div>
             <button (click)="onSubmit()" [disabled]="!shippingForm.valid"  class="btn btn-primary">

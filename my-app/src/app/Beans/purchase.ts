@@ -12,6 +12,4 @@ export class Purchase{
     usersName:string;
     status:string;
 
-    
-
 }
