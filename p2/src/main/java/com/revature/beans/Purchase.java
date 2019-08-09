@@ -98,6 +98,15 @@ public class Purchase {
 		this.purchaseDate = purchaseDate;
 		this.orderStatus = orderStatus;
 	}
+	
+	public Purchase(User user, double total, Payment payment, Address shippingAddress, Date purchaseDate) {
+		super();
+		this.user = user;
+		this.total = total;
+		this.payment = payment;
+		this.shippingAddress = shippingAddress;
+		this.purchaseDate = purchaseDate;
+	}
 
 
 	public int getPurchaseId() {
