@@ -47,15 +47,15 @@ public class LoginDAOImpl implements LoginDAO{
 	}
 
 	@Override
-	public void userSignUp(User user, Credentials cred) {
-		Session s = sessionFactory.getCurrentSession();
-		s.persist(user);
-		s.persist(cred);
+	public Credentials getCredentials(int id) {
+		return sessionFactory.getCurrentSession().get(Credentials.class, id);
 	}
 
 	@Override
-	public Credentials getCredentials(int id) {
-		return sessionFactory.getCurrentSession().get(Credentials.class, id);
+	public void signUp(User user, Credentials creds) {
+			Session s = sessionFactory.getCurrentSession();
+			s.persist(user);
+			s.persist(creds);
 	}
 
 }

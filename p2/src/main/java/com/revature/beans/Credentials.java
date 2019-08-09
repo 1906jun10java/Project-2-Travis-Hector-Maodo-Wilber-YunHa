@@ -41,6 +41,14 @@ public class Credentials implements Serializable{
 
 
 
+	public Credentials(User user, String password) {
+		super();
+		this.user = user;
+		this.password = password;
+	}
+
+
+
 	public Credentials(User user, String email, String password) {
 		super();
 		this.user = user;
