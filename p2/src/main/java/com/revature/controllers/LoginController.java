@@ -43,7 +43,7 @@ private LoginService loginService;
 		return loginService.loginVerification(credentials);
 	}
 	
-	@CrossOrigin(value="/allcredentials", origins="http://localhost:4200")
+	@CrossOrigin(value="/signUp", origins="http://localhost:4200")
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public boolean addUser(@RequestBody User user) {
