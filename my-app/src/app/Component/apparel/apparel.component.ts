@@ -22,7 +22,8 @@ export class ApparelComponent implements OnInit {
   currentGender:String='unisex';
 
   change(){
-    
+    this.apparelServiceService.getItems(this.currentColor,this.currentGender,this.currentType,this.currentSize)
+    .subscribe(items=>this.items=items);
   }
 
 
