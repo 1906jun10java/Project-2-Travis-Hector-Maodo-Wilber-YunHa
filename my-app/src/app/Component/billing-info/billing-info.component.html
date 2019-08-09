@@ -2,10 +2,12 @@
 <h4>This is you most up to date Billing info
     <br>
     Note that card number and securety number are not shown
+
+   
 </h4>
 
 <form [formGroup]="billingForm" >
-  
+
     <div class="form-group">
         <label for="cardNumber">Card Number</label>
         <input formControlName="cardNumber" type="number" required minlength="16" 
@@ -35,7 +37,7 @@
       
       <div class="form-group">
         <label for="Expiration ">Card Expiration </label>
-        <input formControlName="expirationDate" placeholder="{{billingInfo[0].expirationDate}}" type="month" [ngClass]="{ 'is-invalid': submitted && f.expirationDate.errors }" />
+        <input formControlName="expirationDate" placeholder="{{billingInfo[0].expirationDate}}" type="date" [ngClass]="{ 'is-invalid': submitted && f.expirationDate.errors }" />
         <div *ngIf="submitted && f.expirationDate.errors" class="invalid-feedback">
             <div *ngIf="f.expirationDate.errors.required">Card Expiration is required</div>
         </div>
