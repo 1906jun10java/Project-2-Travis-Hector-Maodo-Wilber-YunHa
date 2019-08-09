@@ -19,26 +19,21 @@ export class ShippingInfoComponent implements OnInit {
   ngOnInit(): void {
 
   
-    /*
-   this.shippingInfoService.getCurrentUserShipping(this.currentUser.id)
+    
+   this.shippingInfoService.getCurrentUserShipping(this.currentUser.userId)
    .subscribe(address=> this.addressInfo=address);
-   */
+   
   }
 
  
 
 shippingForm=this.fb.group({
-  address:['', Validators.required],
-  zip:['',[Validators.required,Validators.maxLength(5),Validators.minLength(5)]]
+  addressLine1:['', Validators.required],
+  zipCode:['',[Validators.required,Validators.maxLength(5),Validators.minLength(5)]]
 })
   //addressInfo:Address;
   
-   addressInfo:Address={
-    id:22,
-    userID:55,
-    address:"hi",
-    zip:22222
-  }
+   addressInfo:Address;
 
   newUserAddress:Address;
   valid:boolean;
@@ -60,16 +55,16 @@ shippingForm=this.fb.group({
 onSubmit() {
   console.log(this.shippingForm);
   if(this.shippingForm.value.address===null || this.shippingForm.value.zip===null){
-    this.shippingForm.value.address=this.addressInfo.address;
-    this.shippingForm.value.zip=this.addressInfo.zip;
+    this.shippingForm.value.address=this.addressInfo[0].addressLine1;
+    this.shippingForm.value.zip=this.addressInfo[0].zipCode;
   }
   if(this.shippingForm.status==="INVALID"){
     alert("No good fam,lolololoolololool")
   }
   else{
     this.newUserAddress=this.shippingForm.value;
-    this.newUserAddress.userID=this.currentUser.id;
-
+    this.newUserAddress.user=this.currentUser;
+    console.log(this.newUserAddress);
     this.shippingInfoService.putCurrentUserShipping(this.newUserAddress)
     .subscribe(valid =>this.valid=valid);
     

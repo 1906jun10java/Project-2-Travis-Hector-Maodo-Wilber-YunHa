@@ -10,15 +10,21 @@ import { Address } from 'src/app/Beans/Address';
 })
 export class ShippingInfoService {
 
-  baseUrl:string="http://localhost:8080/Shipping"
+  baseUrl:string="http://localhost:8082/p2/address"
   constructor(private http: HttpClient) { }
   getCurrentUserShipping(userid:number): Observable<Address>{
-    return this.http.get<Address>(`${this.baseUrl}/?userid=${userid}`)
+    return this.http.get<Address>(`${this.baseUrl}/getAddressesByUserId/${userid}`)
 
   }
 
   putCurrentUserShipping(address:Address):Observable<any>{
-    return this.http.put<any>(this.baseUrl,address)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+        
+      })
+    };
+    return this.http.put<any>(this.baseUrl+"/addOrUpdate",address,httpOptions)
   }
  
 

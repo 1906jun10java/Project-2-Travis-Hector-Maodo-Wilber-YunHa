@@ -1,7 +1,9 @@
+import { User } from './User';
+
 export class Address{
     id:number;
-    userID:number;
-    address:string;
-    zip:number;
+    addressLine1:string;
+    zipCode:number;
+    user:User
 
 }

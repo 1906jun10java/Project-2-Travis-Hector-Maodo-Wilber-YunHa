@@ -1,18 +1,19 @@
 <h4>This is your most up to date shipping info
     <br>
     Feel free to make any changes 
+    
 </h4>
 
 <form [formGroup]="shippingForm"  >
         <div class="form-group">
                 <label for="Address">Address</label>
-                <input  formControlName="address"  value="{{addressInfo.address}}" class="form-control" required />
+                <input  formControlName="addressLine1"  value="{{addressInfo[0].addressLine1}}" class="form-control" required />
 
         </div>
 
         <div class="form-group">
                 <label for="Zip">Zip Code</label>
-                <input type="number" formControlName="zip" value="{{addressInfo.zip}}" class="form-control" required minlength="5" 
+                <input type="number" formControlName="zipCode" value="{{addressInfo[0].zipCode}}" class="form-control" required minlength="5" 
                 maxlength="5" />
 
         </div>
