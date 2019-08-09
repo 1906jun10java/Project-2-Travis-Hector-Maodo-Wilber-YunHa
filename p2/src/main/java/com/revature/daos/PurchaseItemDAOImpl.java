@@ -53,7 +53,6 @@ public class PurchaseItemDAOImpl implements PurchaseItemDAO {
             }
             e.printStackTrace();
         }
-		
 	}
 
 	@Override
