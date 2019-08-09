@@ -36,19 +36,18 @@ public class PurchaseController {
 		return new ResponseEntity<>(purchaseService.getAllPurchases(), HttpStatus.OK);
 	}
 	
-	@CrossOrigin(origins="http://localhost:4200")
-	@RequestMapping(value="/addPurchase", method=RequestMethod.POST)
-	public ResponseEntity<String> addPurchase(@RequestBody Purchase purchase) {
-		ResponseEntity<String> resp = null;
-		
-		try {
-			purchaseService.addPurchase(purchase);
-			resp = new ResponseEntity<>("PURCHASE CREATED SUCCESSFULLY", HttpStatus.OK);
-		} catch (Exception e) {
-			resp = new ResponseEntity<>("FAILED TO CREATE PURCHASE", HttpStatus.BAD_REQUEST);
-		}
-		return resp;
-	}
+	/*
+	 * @CrossOrigin(origins="http://localhost:4200")
+	 * 
+	 * @RequestMapping(value="/addPurchase", method=RequestMethod.POST) public
+	 * ResponseEntity<String> addPurchase(@RequestBody Parsing purchase) {
+	 * ResponseEntity<String> resp = null;
+	 * 
+	 * try { purchaseService.addPurchase(purchase); resp = new
+	 * ResponseEntity<>("PURCHASE CREATED SUCCESSFULLY", HttpStatus.OK); } catch
+	 * (Exception e) { resp = new ResponseEntity<>("FAILED TO CREATE PURCHASE",
+	 * HttpStatus.BAD_REQUEST); } return resp; }
+	 */
 	
 	@CrossOrigin(origins="http://localhost:4200")
 	@RequestMapping(value="/getPurchaseById/{purchaseId}", method=RequestMethod.GET)

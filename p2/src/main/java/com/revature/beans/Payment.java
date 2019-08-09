@@ -78,6 +78,25 @@ public class Payment {
 		this.cardType = cardType;
 	}
 	
+	public Payment(int cardNumber, int securityCode, String nameOnCard, Date expirationDate) {
+		super();
+		this.cardNumber = cardNumber;
+		this.securityCode = securityCode;
+		this.nameOnCard = nameOnCard;
+		this.expirationDate = expirationDate;
+	}
+	
+	
+
+	public Payment(User user, int cardNumber, String nameOnCard, Date expirationDate, int securityCode) {
+		super();
+		this.user = user;
+		this.cardNumber = cardNumber;
+		this.nameOnCard = nameOnCard;
+		this.expirationDate = expirationDate;
+		this.securityCode = securityCode;
+	}
+	
 	public Payment(int cardNumber, String nameOnCard, Date expirationDate, int securityCode) {
 		super();
 		this.cardNumber = cardNumber;

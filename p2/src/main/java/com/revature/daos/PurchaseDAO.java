@@ -6,7 +6,7 @@ import com.revature.beans.*;
 
 public interface PurchaseDAO {
 
-	public void addPurchase(Purchase purchase);
+	public void addPurchase(Purchase purchase, Payment payment);
 	
 	public List<Purchase> getAllPurchases();
 	

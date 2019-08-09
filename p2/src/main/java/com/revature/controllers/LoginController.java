@@ -50,10 +50,10 @@ private LoginService loginService;
 		ResponseEntity<String> resp = null;
 		try {
 			loginService.signUp(user);
-			resp = new ResponseEntity<>(HttpStatus.OK);
+			resp = new ResponseEntity<>("REQUEST RECIEVED",HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
-			resp = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			resp = new ResponseEntity<>("USER CREATION FAILED",HttpStatus.BAD_REQUEST);
 		}
 		return resp;
 	}
