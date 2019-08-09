@@ -38,13 +38,48 @@ public class Payment {
 	@Column(name="SECURITY_CODE")
 	private int securityCode;
 	
+	@Column(name="CARD_TYPE")
+	private String cardType;
+	
 	public Payment() {
 		super();
 	}
 
-	public Payment(User user, int cardNumber, String nameOnCard, Date expirationDate, int securityCode) {
+	public Payment(int paymentId, User user, int cardNumber, String nameOnCard, Date expirationDate, int securityCode,
+			String cardType) {
+		super();
+		this.paymentId = paymentId;
+		this.user = user;
+		this.cardNumber = cardNumber;
+		this.nameOnCard = nameOnCard;
+		this.expirationDate = expirationDate;
+		this.securityCode = securityCode;
+		this.cardType = cardType;
+	}
+	
+	public Payment(User user, int cardNumber, String nameOnCard, Date expirationDate, int securityCode,
+			String cardType) {
 		super();
 		this.user = user;
+		this.cardNumber = cardNumber;
+		this.nameOnCard = nameOnCard;
+		this.expirationDate = expirationDate;
+		this.securityCode = securityCode;
+		this.cardType = cardType;
+	}
+	
+	public Payment(int cardNumber, String nameOnCard, Date expirationDate, int securityCode,
+			String cardType) {
+		super();
+		this.cardNumber = cardNumber;
+		this.nameOnCard = nameOnCard;
+		this.expirationDate = expirationDate;
+		this.securityCode = securityCode;
+		this.cardType = cardType;
+	}
+	
+	public Payment(int cardNumber, String nameOnCard, Date expirationDate, int securityCode) {
+		super();
 		this.cardNumber = cardNumber;
 		this.nameOnCard = nameOnCard;
 		this.expirationDate = expirationDate;
@@ -99,11 +134,19 @@ public class Payment {
 		this.securityCode = securityCode;
 	}
 
-	@Override
-	public String toString() {
-		return "Payment [paymentId=" + paymentId + ", user=" + user + ", cardNumber=" + cardNumber + ", nameOnCard="
-				+ nameOnCard + ", expirationDate=" + expirationDate + ", securityCode=" + securityCode + "]";
+	public String getCardType() {
+		return cardType;
 	}
 
+	public void setCardType(String cardType) {
+		this.cardType = cardType;
+	}
+	
+	@Override
+	public String toString() {
+		return "Payment [paymentId=" + paymentId + ", cardNumber=" + cardNumber + ", nameOnCard=" + nameOnCard
+				+ ", expirationDate=" + expirationDate + ", securityCode=" + securityCode + ", cardType=" + cardType
+				+ ", user=" + user + "]";
+	}
 	
 }
