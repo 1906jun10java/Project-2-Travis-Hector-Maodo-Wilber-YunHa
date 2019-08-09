@@ -62,18 +62,15 @@ onSubmit() {
     alert("No good fam,lolololoolololool")
   }
   else{
+    
     this.newUserAddress=this.shippingForm.value;
     this.newUserAddress.user=this.currentUser;
+    this.newUserAddress.addressId=this.addressInfo[0].addressId;
     console.log(this.newUserAddress);
     this.shippingInfoService.putCurrentUserShipping(this.newUserAddress)
     .subscribe(valid =>this.valid=valid);
     
-    if(this.valid===true){
-      alert("Address Info Updated");
-    }
-    else{
-      alert("Addres Not Updated");
-    }
+   
 
   }
   

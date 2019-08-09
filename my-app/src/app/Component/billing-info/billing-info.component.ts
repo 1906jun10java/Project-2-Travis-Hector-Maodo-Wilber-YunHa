@@ -14,7 +14,7 @@ import { BillingInfoService } from 'src/app/Servises/billingService/billing-info
 })
 export class BillingInfoComponent implements OnInit {
 
-  billingForm: FormGroup;
+  
   currentUser: User;
   currentUserSubscription: Subscription;
 
@@ -22,14 +22,14 @@ export class BillingInfoComponent implements OnInit {
   newBillingInfo:Billing;
   valid:boolean;
 
-  addressInfo:Billing={
-    id:22,
-    userID: 55,
-    cardNum: 30403043043,
-    securetyNum: 234,
-    nameOnCard: "Joe",
-    exp: new Date()
-  }
+  billingInfo:Billing;
+
+  billingForm=this.fb.group({
+    cardNumber:['', Validators.required],
+    securityCode:['',[Validators.required,Validators.maxLength(5),Validators.minLength(5)]],
+    nameOnCard:['', Validators.required],
+    expirationDate:['', Validators.required]
+  })
 
   constructor(private authenticationService: AuthenticationService,private router: Router,
     private billingInfoService:BillingInfoService,private fb:FormBuilder) { 
@@ -44,17 +44,11 @@ export class BillingInfoComponent implements OnInit {
   }
 
   ngOnInit() {
-  this.billingForm = this.fb.group({
-    cardNumber: ['',Validators.required],
-    securetyNumber:['',Validators.required],
-    nameOnCard:['',Validators.required],
-    cardExpiration:['',Validators.required] 
-  });
-
-    /*
-   this.billingInfoService.getCurrentUserBilling(this.currentUser.id)
-   .subscribe(billing => this.billinInfo=billing);
-   */
+  
+    
+   this.billingInfoService.getCurrentUserBilling(this.currentUser.userId)
+   .subscribe(billing => this.billingInfo=billing);
+   
   }
 
   get f() { return this.billingForm.controls;
@@ -66,8 +60,10 @@ export class BillingInfoComponent implements OnInit {
     }
     else{
       this.newBillingInfo=this.billingForm.value;
-      this.newBillingInfo.userID=this.currentUser.id;
+      this.newBillingInfo.user=this.currentUser;
+      this.newBillingInfo.paymentId=this.billingInfo.paymentId;
       console.log(this.newBillingInfo);
+
       this.billingInfoService.putCurrentUserBilling(this.newBillingInfo)
       .subscribe(valid =>this.valid=valid);
       

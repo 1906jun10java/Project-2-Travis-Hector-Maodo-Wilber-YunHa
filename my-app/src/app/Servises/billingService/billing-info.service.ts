@@ -9,12 +9,12 @@ import { Billing } from 'src/app/Beans/Billing';
   providedIn: 'root'
 })
 export class BillingInfoService {
-  baseUrl:string="http://localhost:8080/Billing"
+  baseUrl:string="http://localhost:8082/payment"
   constructor(private http: HttpClient) { }
 
 
   getCurrentUserBilling(userid:number): Observable<Billing>{
-    return this.http.get<Billing>(`${this.baseUrl}/?userid=${userid}`)
+    return this.http.get<Billing>(`${this.baseUrl}/getPaymentsByUserId/${userid}`)
   }
 
   putCurrentUserBilling(billing:Billing):Observable<any>{
