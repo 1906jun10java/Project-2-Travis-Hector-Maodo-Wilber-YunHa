@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.Credentials;
 import com.revature.beans.User;
+import com.revature.beans.Parsing;
 import com.revature.services.LoginService;;
 
 @CrossOrigin(origins="http://localhost:4200")
@@ -40,7 +41,35 @@ private LoginService loginService;
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public User getCredentials(@RequestBody Credentials credentials) {
+
+		return loginService.loginVerification(credentials);
+	}
+	
+<<<<<<< HEAD
+	@CrossOrigin(origins="http://localhost:4200")
+	@PostMapping(value="/signUp", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<String> userSignUp(@RequestBody Parsing user) {
+		ResponseEntity<String> resp = null;
+		try {
+			loginService.signUp(user);
+			resp = new ResponseEntity<>("USER CREATED SUCCESSFULLY", HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			resp = new ResponseEntity<>("FAILED TO CREATE USER", HttpStatus.BAD_REQUEST);
+		}
+		return resp;
+=======
+	@CrossOrigin(value="/signUp", origins="http://localhost:4200")
+	@ResponseStatus(HttpStatus.OK)
+	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public boolean addUser(@RequestBody Parsing user) {
+		return loginService.signUp(user);
+>>>>>>> 26adc4b2893a505914b95e6a7cc17aea52d81274
+	}
+}
+
 		System.out.println(credentials);
 		return loginService.loginVerification(credentials);
 	}
 }
+

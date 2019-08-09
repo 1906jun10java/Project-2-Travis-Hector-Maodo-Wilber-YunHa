@@ -11,6 +11,5 @@ public interface LoginDAO {
 	public User getUserByEmail(String email);
 	public List<Credentials> getAllCredentials();
 	public Credentials getCredentials(int id);
-	public void userSignUp(User user, Credentials cred);
-	
+	public void signUp(User user, Credentials creds);
 }
