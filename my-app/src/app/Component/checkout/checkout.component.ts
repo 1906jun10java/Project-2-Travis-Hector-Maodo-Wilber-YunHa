@@ -79,6 +79,8 @@ export class CheckoutComponent implements OnInit {
       usersName:"",
       status:''
     }
+
+    this.checkoutService.sendOrder(this.cartList,purchase);
     
   }
 
