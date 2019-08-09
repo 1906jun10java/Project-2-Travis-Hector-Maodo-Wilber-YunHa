@@ -38,18 +38,6 @@ public class User implements Serializable{
 		super();
 	}
 
-	
-	
-	public User(int userId, String firstName, String lastName, String email, String userType) {
-		super();
-		this.userId = userId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.userType = userType;
-	}
-
-
 
 	public User(String firstName, String lastName, String email, String userType) {
 		super();

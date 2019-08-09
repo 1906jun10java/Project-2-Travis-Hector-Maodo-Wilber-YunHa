@@ -48,7 +48,6 @@ public class Credentials implements Serializable{
 	}
 
 
-
 	public Credentials(User user, String email, String password) {
 		super();
 		this.user = user;
@@ -56,8 +55,6 @@ public class Credentials implements Serializable{
 		this.password = password;
 	}
 
-
-	
 	
 	public User getUser() {
 		return user;

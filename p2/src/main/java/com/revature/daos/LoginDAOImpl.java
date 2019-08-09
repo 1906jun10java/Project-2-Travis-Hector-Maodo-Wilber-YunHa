@@ -55,7 +55,6 @@ public class LoginDAOImpl implements LoginDAO{
 	public void signUp(User user, Credentials creds) {
 			Session s = sessionFactory.getCurrentSession();
 			s.persist(user);
-			s.persist(creds);
 	}
 
 }

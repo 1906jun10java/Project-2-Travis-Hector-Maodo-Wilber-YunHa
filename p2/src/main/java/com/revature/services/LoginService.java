@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.revature.beans.Credentials;
 import com.revature.beans.User;
+import com.revature.beans.Parsing;
 import com.revature.daos.LoginDAO;
 
 @Service
@@ -36,19 +37,20 @@ public class LoginService {
 		return null;
 	}
 	
-	public boolean signUp(User user) {
+	public boolean signUp(Parsing user) {
 		System.out.println(user);
 		User tempUser = new User();
 		Credentials creds = new Credentials();
+		tempUser.setUserId(user.getUserId());;
 		tempUser.setEmail(user.getEmail());
 		tempUser.setFirstName(user.getFirstName());
 		tempUser.setLastName(user.getLastName());
+		System.out.println(tempUser);
 		if(tempUser.getEmail().isEmpty()) {
 			return false;
 		}
-		creds.setUser(user);
-		creds.setEmail(creds.getEmail());
-		creds.setPassword(creds.getPassword());
+		creds.setEmail(user.getEmail());
+		creds.setPassword(user.getPassword());
 		System.out.println(creds);
 		if(creds.getPassword().isEmpty()) {
 			return false;
