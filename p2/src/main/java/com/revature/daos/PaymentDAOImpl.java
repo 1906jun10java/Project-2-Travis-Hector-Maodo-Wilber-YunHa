@@ -75,5 +75,11 @@ public class PaymentDAOImpl implements PaymentDAO {
 		Session s = sessionFactory.getCurrentSession();
 		return s.createQuery("from Payment where USER_ID = " + userId).getResultList();
 	}
+
+	@Override
+	public void addOrUpdatePayment(Payment payment) {
+		sessionFactory.getCurrentSession().saveOrUpdate(payment);
+		
+	}
 	
 }

@@ -15,4 +15,6 @@ public interface PaymentDAO {
 	public Payment getPaymentById(int paymentId);
 	
 	public List<Payment> getPaymentsForUser(int userId);
+	
+	public void addOrUpdatePayment(Payment payment);
 }
