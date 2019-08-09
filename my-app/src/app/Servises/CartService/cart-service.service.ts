@@ -17,8 +17,10 @@ export class CartServiceService {
   }
 
   addToList(item:Item):Item[]{
+    this.cartList=JSON.parse(localStorage.getItem("cartList"));
     this.cartList.push(item);
     localStorage.setItem("cartList",JSON.stringify(this.cartList));
+    alert("Added "+item.productName+" to your cart");
     return this.cartList;
   }
 

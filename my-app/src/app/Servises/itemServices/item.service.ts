@@ -24,7 +24,7 @@ export class ItemService {
   }
 
   getItemById(id:string): Observable<Item>{
-    return this.http.get<Item>(`${this.itemUrl}/${id}`)
+    return this.http.get<Item>(`${this.itemUrl}/byId/${id}`)
     .pipe(
       catchError(this.handleError<Item>('getTopItems', ))
     );

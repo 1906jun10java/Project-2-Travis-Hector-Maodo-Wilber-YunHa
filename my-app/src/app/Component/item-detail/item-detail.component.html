@@ -8,8 +8,14 @@
             <img src="{{currentItem.meme.memeImg}}">
         </div>
        <div>
-           {{currentItem.productDescription}}
-           {{currentItem.price}}
+           <p>
+              Description: {{currentItem.productDescription}}
+           </p>
+           
+           <p>
+               Price: ${{currentItem.price}}
+           </p>
+          
            <div *ngIf="currentItem">
                <button (click)="addToCart()">
                  Add To Cart
